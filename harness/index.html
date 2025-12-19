@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Antigravity Looker Harness</title>
+    <style>
+        body, html { height: 100%; margin: 0; font-family: sans-serif; }
+        #vis-container { height: 80vh; border: 1px solid #ccc; margin: 20px; }
+        #controls { padding: 20px; background: #f0f0f0; }
+    </style>
+</head>
+<body>
+    <div id="controls">
+        <button onclick="renderScenario('simple')">Load Simple Data</button>
+        <button onclick="renderScenario('empty')">Load Empty Data</button>
+    </div>
+    
+    <div id="vis-container"></div>
+
+    <script src="mocks.js"></script>
+    <script src="data_scenarios.js"></script>
+
+    <script src="../dist/hello_world.js"></script>
+
+    <script>
+        function renderScenario(name) {
+            const scenario = scenarios[name];
+            const container = document.getElementById('vis-container');
+            
+            // 1. Clean container
+            container.innerHTML = '';
+
+            // 2. Initialize (create)
+            // Note: hello_world.js assumes 'looker.plugins.visualizations.add' ran on load
+            if (!window.currentViz) {
+                console.error("No visualization registered!");
+                return;
+            }
+            
+            // Call create() only once in a real app, but here we reset for simplicity
+            window.currentViz.create(container, scenario.config);
+
+            // 3. Update (updateAsync)
+            console.log(`Rendering scenario: ${name}`);
+            window.currentViz.updateAsync(
+                scenario.data,
+                container,
+                scenario.config,
+                scenario.queryResponse,
+                {}, // details
+                () => console.log('Finished Rendering (done called)')
+            );
+        }
+    </script>
+</body>
+</html>
