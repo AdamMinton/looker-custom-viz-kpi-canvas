@@ -13,8 +13,11 @@
     "dev": "webpack serve --config webpack.config.js"
   },
   "dependencies": {
+    "lodash": "^4.17.21",
+    "lucide-react": "^0.562.0",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
+    "react-grid-layout": "^2.1.0",
     "styled-components": "^5.3.6"
   },
   "devDependencies": {

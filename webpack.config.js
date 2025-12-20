@@ -4,7 +4,8 @@ const fs = require('fs');
 const webpackConfig = {
   mode: 'production',
   entry: {
-    custom_pivot: './src/custom_pivot.js'
+    custom_pivot: './src/custom_pivot.js',
+    kpi_canvas: './src/kpi_canvas.js'
   },
   output: {
     filename: '[name].js',
@@ -25,6 +26,14 @@ const webpackConfig = {
           options: {
             presets: ['@babel/preset-env', '@babel/preset-react']
           }
+        }
+      },
+      {
+        test: /\.mjs$/,
+        include: /node_modules/,
+        type: "javascript/auto",
+        resolve: {
+          fullySpecified: false
         }
       },
       {
