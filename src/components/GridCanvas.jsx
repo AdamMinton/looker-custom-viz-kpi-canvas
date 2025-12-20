@@ -47,6 +47,7 @@ export const GridCanvas = ({
 
         const resizeObserver = new ResizeObserver(entries => {
             for (let entry of entries) {
+                // allow width to shrink so items flow down
                 setWidth(entry.contentRect.width);
             }
         });
@@ -75,8 +76,8 @@ export const GridCanvas = ({
                 className="layout"
                 layouts={{ lg: layout }}
                 breakpoints={{ lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 }}
-                // Lock columns to 12 across all breakpoints to prevent reflow during sidebar toggle
-                cols={{ lg: 12, md: 12, sm: 12, xs: 12, xxs: 12 }}
+                // Responsive columns to allow items to stack/flow down on smaller screens
+                cols={{ lg: 12, md: 10, sm: 6, xs: 4, xxs: 2 }}
                 rowHeight={50}
                 width={width}
                 isDraggable={isEditMode}
