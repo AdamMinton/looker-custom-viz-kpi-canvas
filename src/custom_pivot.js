@@ -25,18 +25,7 @@ looker.plugins.visualizations.add({
       default: 2,
       section: 'Layout'
     },
-    // We'll support up to 4 custom headers statically to keep it simple
-    col_1_header: { type: 'string', label: 'Column 1 Header', default: 'Result', section: 'Layout Headers' },
-    col_2_header: { type: 'string', label: 'Column 2 Header', default: 'Result 2', section: 'Layout Headers' },
-    col_3_header: { type: 'string', label: 'Column 3 Header', default: 'Result 3', section: 'Layout Headers' },
-    col_4_header: { type: 'string', label: 'Column 4 Header', default: 'Result 4', section: 'Layout Headers' },
-
-    row_label_header: {
-      type: 'string',
-      label: 'Metric Name Header',
-      default: 'Metric Name',
-      section: 'Layout Headers'
-    },
+    // Headers will be generated dynamically
 
     show_row_numbers: {
       type: 'boolean',
@@ -87,25 +76,48 @@ looker.plugins.visualizations.add({
     this.clearErrors();
 
     // DYNAMIC OPTIONS GENERATION
-    // We need to generate a "Column Index" option for every measure in the query.
+    // We rebuild the options object to control order and visibility.
+    const newOptions = { ...this.options };
+
+    // 1. Layout Headers Section
+    // User wants "Metric Name Header" first.
+    newOptions['row_label_header'] = {
+      type: 'string',
+      label: 'Metric Name Header',
+      default: 'Metric Name',
+      section: 'Layout Headers',
+      order: 1
+    };
+
+    // 2. Dynamic Column Headers based on num_grid_columns
+    const numCols = config.num_grid_columns || 2;
+    for (let i = 1; i <= numCols; i++) {
+      newOptions[`col_${i}_header`] = {
+        type: 'string',
+        label: `Column ${i} Header`,
+        default: `Result ${i}`,
+        section: 'Layout Headers',
+        order: i + 1
+      };
+    }
+
+    // 3. Measure Columns Mapping
     if (queryResponse && queryResponse.fields && queryResponse.fields.measures) {
-      const dynamicOptions = { ...this.options };
       queryResponse.fields.measures.forEach(measure => {
         const optionKey = `measure_${measure.name}_col`;
-        dynamicOptions[optionKey] = {
-          label: `Column for ${measure.label_short || measure.label}`,
-          type: 'number',
-          default: 1, // Default to Col 1
-          min: 1,
-          max: 4, // Match our static headers support
-          section: 'Measure Mapping'
-        };
-      });
-
-      // Only trigger option registration if the keys have changed, to avoid infinite loops if Looker is sensitive.
-      // However, standard pattern is safe to call trigger('registerOptions').
-      this.trigger('registerOptions', dynamicOptions);
+          newOptions[optionKey] = {
+            label: `Column for ${measure.label_short || measure.label}`,
+            type: 'number',
+            default: 1, // Default to Col 1
+            min: 1,
+            max: numCols, // Constrain to currently selected columns
+            section: 'Measure Mapping'
+          };
+        });
     }
+
+    // Dispatch options update
+    this.trigger('registerOptions', newOptions);
 
     // specific error handling
     if (!queryResponse || !queryResponse.pivots || queryResponse.pivots.length === 0) {
