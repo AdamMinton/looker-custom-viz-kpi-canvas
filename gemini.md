@@ -120,3 +120,16 @@ Looker requires these functions in the visualizations available from the Looker 
 *   **Dependencies**:
     *   `styled-components` is excellent for isolating visualization styles from Looker's global CSS.
     *   `yarn` is preferred over `npm` for consistent dependency locking in this repo.
+
+### **4. Key Directories & Reference Material**
+*   **Best Examples (`custom_visualizations_v2-master/src/examples`)**:
+    *   This directory contains the "Gold Standard" examples.
+    *   **`hello_world/`**: The simplest implementation. Use this to verify your build pipeline works.
+    *   **`advanced/`**: (If available) Check here for more complex data handling (pivots, drilling).
+    *   *Agent Hint*: If you are stuck on how to implement `updateAsync`, read the code in `src/examples` before reinventing the wheel.
+*   **Documentation (`custom_visualizations_v2-master/docs`)**:
+    *   **`api_reference.md`**: The technical specification for every method (`create`, `updateAsync`) and object (`queryResponse`, `details`).
+    *   **`getting_started.md`**: A step-by-step setup guide.
+*   **Your Source (`src/`)**:
+    *   Keep your source clean.
+    *   `src/common/` (if you create it) is a good place for reusable formatting/parsing logic.

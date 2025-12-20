@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { PivotTable } from './PivotTable'
 
-console.log('CUSTOM PIVOT: Loaded');
+
 
 looker.plugins.visualizations.add({
   // The id must match the key in looker.plugins.visualizations
@@ -19,6 +19,25 @@ looker.plugins.visualizations.add({
       display: 'select',
       default: 'large'
     },
+    num_grid_columns: {
+      type: 'number',
+      label: 'Number of Value Columns',
+      default: 2,
+      section: 'Layout'
+    },
+    // We'll support up to 4 custom headers statically to keep it simple
+    col_1_header: { type: 'string', label: 'Column 1 Header', default: 'Result', section: 'Layout Headers' },
+    col_2_header: { type: 'string', label: 'Column 2 Header', default: 'Result 2', section: 'Layout Headers' },
+    col_3_header: { type: 'string', label: 'Column 3 Header', default: 'Result 3', section: 'Layout Headers' },
+    col_4_header: { type: 'string', label: 'Column 4 Header', default: 'Result 4', section: 'Layout Headers' },
+
+    row_label_header: {
+      type: 'string',
+      label: 'Metric Name Header',
+      default: 'Metric Name',
+      section: 'Layout Headers'
+    },
+
     show_row_numbers: {
       type: 'boolean',
       label: 'Show Row Numbers',
@@ -46,7 +65,7 @@ looker.plugins.visualizations.add({
 
   // Set up the initial state of the visualization
   create: function (element, config) {
-    console.log('CUSTOM PIVOT: create called');
+
     element.innerHTML = `
       <style>
         .custom-pivot-container {
@@ -65,8 +84,28 @@ looker.plugins.visualizations.add({
 
   // Render in response to the data or settings changing
   updateAsync: function (data, element, config, queryResponse, details, done) {
-    // Clear any errors from previous updates
     this.clearErrors();
+
+    // DYNAMIC OPTIONS GENERATION
+    // We need to generate a "Column Index" option for every measure in the query.
+    if (queryResponse && queryResponse.fields && queryResponse.fields.measures) {
+      const dynamicOptions = { ...this.options };
+      queryResponse.fields.measures.forEach(measure => {
+        const optionKey = `measure_${measure.name}_col`;
+        dynamicOptions[optionKey] = {
+          label: `Column for ${measure.label_short || measure.label}`,
+          type: 'number',
+          default: 1, // Default to Col 1
+          min: 1,
+          max: 4, // Match our static headers support
+          section: 'Measure Mapping'
+        };
+      });
+
+      // Only trigger option registration if the keys have changed, to avoid infinite loops if Looker is sensitive.
+      // However, standard pattern is safe to call trigger('registerOptions').
+      this.trigger('registerOptions', dynamicOptions);
+    }
 
     // specific error handling
     if (!queryResponse || !queryResponse.pivots || queryResponse.pivots.length === 0) {
