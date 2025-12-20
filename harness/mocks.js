@@ -3,8 +3,13 @@ window.looker = {
   plugins: {
     visualizations: {
       add: function (viz) {
-        console.log("Registered visualization:", viz);
-        window.currentViz = viz; // Store for the runner to access
+        console.log(`Registering visualization: ${viz.id}`);
+        // Add required methods to the viz object itself as Looker does
+        viz.clearErrors = function () { console.log('Errors cleared'); };
+        viz.addError = function (e) { console.error('Error added:', e); };
+        this[viz.id] = viz;
+        // Make it available as currentViz for legacy harness support if needed
+        window.currentViz = viz;
       },
     },
   },
