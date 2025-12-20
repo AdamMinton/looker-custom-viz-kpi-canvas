@@ -133,3 +133,32 @@ Looker requires these functions in the visualizations available from the Looker 
 *   **Your Source (`src/`)**:
     *   Keep your source clean.
     *   `src/common/` (if you create it) is a good place for reusable formatting/parsing logic.
+
+### **5. Troubleshooting & Specific Library Gotchas**
+*   **Browser Verification (Crucial)**:
+    *   **Verify Runtime**: Use the Browser Subagent to open the local harness (`https://localhost:8082/harness/kpi_harness.html`).
+    *   **Catch Silent Failures**: Build logs often show "Success" even if runtime imports are broken (e.g., `WidthProvider is not a function`).
+    *   **Inspect Console**: browser console logs are the source of truth for "is not a function" or missing API method errors.
+
+*   **`react-grid-layout` & Webpack 5**:
+    *   **The Problem**: This library uses a mix of CommonJS and ESM that confuses modern Webpack defaults, leading to "export not found" or `undefined` imports.
+    *   **Fix 1 (Webpack Config)**: Add `resolve: { fullySpecified: false }` for `.mjs` rules to handle loose imports.
+    *   **Fix 2 (Robust Import)**: Use `require` instead of `import` to bypass ESM strictness for this specific library:
+        ```javascript
+        const RGL = require('react-grid-layout');
+        const Responsive = RGL.Responsive; // Access property on CommonJS default export
+        ```
+    *   **Fix 3 (WidthProvider)**: if `WidthProvider` causes crashes, it can be removed. Use `<ResponsiveGridLayout>` directly and provide a `width` prop (e.g., via a `useMeasure` hook) to avoid the dependency.
+
+*   **Drag & Drop (HTML5)**:
+    *   **Drop Zone Requirement**: For `onDrop` to fire, the container **MUST** handle `onDragOver` and call `e.preventDefault()`.
+    *   **Height**: Ensure empty drop zones have `min-height` so they are physically present to catch the event.
+    *   **Fallback**: If a library (like `react-grid-layout`) swallows events, add a fallback `onDrop` to the parent wrapper div.
+
+*   **Mocking Looker API**:
+    *   **Completeness**: Your local harness MUST mock every method your code calls (`trigger`, `clearErrors`, `addError`).
+    *   **Safety**: Always guard API calls in production code:
+        ```javascript
+        this.clearErrors && this.clearErrors();
+        if (this.trigger) this.trigger(...);
+        ```

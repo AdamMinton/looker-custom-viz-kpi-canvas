@@ -60,7 +60,13 @@ looker.plugins.visualizations.add({
         tokens={tokens}
         initialLayout={initialLayout}
         onSave={(newState) => {
-          this.trigger('updateConfig', [{ canvas_layout_state: JSON.stringify(newState) }]);
+          const updatePayload = [{ canvas_layout_state: JSON.stringify(newState) }];
+          // Safety check for trigger
+          if (this.trigger) {
+            this.trigger('updateConfig', updatePayload);
+          } else {
+            console.warn("trigger not available on viz object", updatePayload);
+          }
         }}
       />,
       this._container

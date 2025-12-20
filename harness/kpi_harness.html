@@ -44,6 +44,7 @@
                         // Mock standard Looker Viz methods
                         viz.clearErrors = function () { console.log("clearErrors called"); };
                         viz.addError = function (e) { console.error("addError:", e); };
+                        viz.trigger = function (event, args) { console.log(`Trigger fired: ${event}`, args); };
 
                         window.registeredViz = viz;
                         console.log("Registered Viz:", viz.id);

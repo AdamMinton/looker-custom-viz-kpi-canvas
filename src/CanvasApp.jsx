@@ -101,11 +101,21 @@ export const CanvasApp = ({ tokens, initialLayout, isEditMode, onSave }) => {
   };
 
   const handleDrop = (layout, layoutItem, _event) => {
+    console.log("onDrop fired!", layoutItem);
     // The _event in RGL onDrop matches the drag event
     // We parse the dataTransfer to get the token
     const event = _event.nativeEvent || _event;
-    const dataStr = event.dataTransfer.getData("text/plain");
-    if (!dataStr) return;
+    console.log("Drop event:", event);
+
+    // In some browsers/React versions, dataTransfer might be empty in the drop event if not handled correctly.
+    // But let's check what we get.
+    const dataStr = event.dataTransfer ? event.dataTransfer.getData("text/plain") : null;
+    console.log("Dropped data:", dataStr);
+
+    if (!dataStr) {
+      console.warn("No dataStr found in drop event");
+      return;
+    }
 
     const token = JSON.parse(dataStr);
     const newItem = {
