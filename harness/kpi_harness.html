@@ -36,15 +36,73 @@
 
     <!-- Mocks -->
     <script>
+            // Initialize config from localStorage or default
+            const savedConfig = localStorage.getItem('kpi_canvas_config');
+            window.currentConfig = savedConfig ? JSON.parse(savedConfig) : {
+                edit_mode: false,
+                canvas_layout_state: '{}'
+            };
+
+            // Update checkbox state based on saved config
+            document.getElementById('edit-mode-toggle').checked = window.currentConfig.edit_mode;
+
+            function renderCanvas() {
+                const container = document.getElementById('vis-container');
+                const viz = window.registeredViz;
+
+                if (!viz) {
+                    console.error("No viz registered yet!");
+                    return;
+                }
+
+                // Create if not created (simple check)
+                if (!container.hasChildNodes()) {
+                    viz.create(container, window.currentConfig);
+                }
+
+                // Update
+                viz.updateAsync(
+                    mockData,
+                    container,
+                    window.currentConfig,
+                    mockQueryResponse,
+                    {},
+                    () => console.log("Render Done")
+                );
+            }
+
+            function toggleEditMode() {
+                const isEdit = document.getElementById('edit-mode-toggle').checked;
+                window.currentConfig.edit_mode = isEdit;
+                saveConfig();
+                renderCanvas();
+            }
+
+            function saveConfig() {
+                localStorage.setItem('kpi_canvas_config', JSON.stringify(window.currentConfig));
+                console.log("Config saved to localStorage");
+            }
+
         // Mock Looker Object
         window.looker = {
             plugins: {
                 visualizations: {
                     add: function (viz) {
-                        // Mock standard Looker Viz methods
                         viz.clearErrors = function () { console.log("clearErrors called"); };
                         viz.addError = function (e) { console.error("addError:", e); };
-                        viz.trigger = function (event, args) { console.log(`Trigger fired: ${event}`, args); };
+                        viz.trigger = function (event, args) {
+                            console.log(`Trigger fired: ${event}`, args);
+                            if (event === 'updateConfig') {
+                                // Start saving the state
+                                const defaults = { ...window.currentConfig };
+                                const updates = args[0]; // array of updates
+                                if (updates && updates.length > 0) {
+                                    window.currentConfig = { ...defaults, ...updates[0] };
+                                    saveConfig();
+                                    console.log("Config Updated & Persisted:", window.currentConfig);
+                                }
+                            }
+                        };
 
                         window.registeredViz = viz;
                         console.log("Registered Viz:", viz.id);
@@ -52,14 +110,8 @@
                 }
             },
             trigger: function (event, args) {
-                console.log("Looker Trigger:", event, args);
-                if (event === 'updateConfig') {
-                    // Start saving the state
-                    const defaults = { ...window.currentConfig };
-                    const updates = args[0];
-                    window.currentConfig = { ...defaults, ...updates };
-                    console.log("Config Updated:", window.currentConfig);
-                }
+                // Fallback trigger if called on window.looker directly
+                console.log("Global Trigger:", event);
             }
         };
 
@@ -82,42 +134,6 @@
                 ]
             }
         };
-
-        window.currentConfig = {
-            edit_mode: false,
-            canvas_layout_state: '{}'
-        };
-
-        function renderCanvas() {
-            const container = document.getElementById('vis-container');
-            const viz = window.registeredViz;
-
-            if (!viz) {
-                console.error("No viz registered yet!");
-                return;
-            }
-
-            // Create if not created (simple check)
-            if (!container.hasChildNodes()) {
-                viz.create(container, window.currentConfig);
-            }
-
-            // Update
-            viz.updateAsync(
-                mockData,
-                container,
-                window.currentConfig,
-                mockQueryResponse,
-                {},
-                () => console.log("Render Done")
-            );
-        }
-
-        function toggleEditMode() {
-            const isEdit = document.getElementById('edit-mode-toggle').checked;
-            window.currentConfig.edit_mode = isEdit;
-            renderCanvas();
-        }
 
         // Auto-render on load after script runs
         window.onload = function () {

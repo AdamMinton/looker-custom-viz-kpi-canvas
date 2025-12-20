@@ -46,6 +46,23 @@ export const CanvasApp = ({ tokens, initialLayout, isEditMode, onSave }) => {
   const [items, setItems] = useState(() => hydrateItems(initialLayout.items || []));
   const [selectedItemId, setSelectedItemId] = useState(null);
 
+  // Sync from prop (initialLayout) when it changes from Looker
+  useEffect(() => {
+    if (!initialLayout || !initialLayout.items) return;
+
+    console.log("CanvasApp received new initialLayout:", initialLayout);
+
+    // Only update if looks different from current state (State Mismatch)
+    const hydratedNewItems = hydrateItems(initialLayout.items);
+
+    const isDifferent = JSON.stringify(items.map(i => ({ ...i, value: '' }))) !== JSON.stringify(hydratedNewItems.map(i => ({ ...i, value: '' })));
+
+    if (isDifferent) {
+      console.log("Hydrating items from new layout (State Mismatch)");
+      setItems(hydratedNewItems);
+    }
+  }, [initialLayout]);
+
   // Sync tokens when data updates (view mode primarily, but also edit)
   useEffect(() => {
     setItems(currentItems => {
@@ -77,7 +94,7 @@ export const CanvasApp = ({ tokens, initialLayout, isEditMode, onSave }) => {
         }))
       };
       onSave(state);
-    }, 1000),
+    }, 500),
     []
   );
 

@@ -16,6 +16,7 @@ const ItemContainer = styled.div`
   box-sizing: border-box;
   position: relative;
   overflow: hidden;
+  cursor: ${props => props.isEditMode ? 'pointer' : 'default'};
   
   &:hover .delete-btn {
     display: flex;
@@ -62,7 +63,10 @@ export const CanvasItem = ({ item, isEditMode, onRemove, onClick, isSelected, ..
       isEditMode={isEditMode} 
       style={itemStyle} 
       className={isSelected ? 'selected-item' : ''}
-      onClick={isEditMode ? onClick : undefined}
+      onClick={isEditMode ? (e) => {
+        e.stopPropagation();
+        onClick();
+      } : undefined}
       {...props} // Pass props from react-grid-layout (style, className, onMouseDown, etc.)
     >
         {isEditMode && (
