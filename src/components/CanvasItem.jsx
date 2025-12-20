@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { X } from 'lucide-react';
+import { X, Circle, ArrowUp, ArrowDown, Minus, AlertTriangle, CheckCircle } from 'lucide-react';
+import { evaluateRules } from '../utils/rules_utils';
 
 const ItemContainer = styled.div`
   height: 100%;
@@ -46,16 +47,43 @@ const Value = styled.div`
   white-space: nowrap;
 `;
 
+const IconWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 export const CanvasItem = ({ item, isEditMode, onRemove, onClick, isSelected, ...props }) => {
-  const { style, staticLabel, label, value, type, content } = item;
+  const { style, staticLabel, label, value, type, content, rules, value_raw } = item;
 
   // Merge default styles with item styles
-  const itemStyle = {
+  let itemStyle = {
     color: style?.color || '#333',
     fontSize: style?.fontSize || '24px',
     textAlign: style?.textAlign || 'center',
     fontWeight: style?.fontWeight || 'bold',
     ...style
+  };
+
+  // Apply Conditional Logic
+  // We mock a token object using 'value_raw' if available in item (which comes from hydration)
+  if (rules && rules.length > 0) {
+    // NOTE: We rely on 'item' having value_raw populated during hydration in CanvasApp
+    const effectiveStyle = evaluateRules({ value_raw: item.value_raw }, rules, itemStyle);
+    itemStyle = { ...itemStyle, ...effectiveStyle };
+  }
+
+  const renderIcon = () => {
+    // Default icon or specific one from rules?
+    // For now, let's just use some logic or a default Circle
+    // If we implement icon selection in rules, we'd read it from itemStyle.icon or similar?
+    // But the spec says "Status Indicator" is a traffic light.
+
+    const IconComponent = Circle; // Default
+    // We could map specific icon names if we extended the rule system to return icon names.
+    // For MVP "traffic light", the Color is the main thing.
+
+    return <IconComponent size={parseInt(itemStyle.fontSize) || 24} color={itemStyle.color} fill={itemStyle.color} />;
   };
 
   return (
@@ -67,7 +95,7 @@ export const CanvasItem = ({ item, isEditMode, onRemove, onClick, isSelected, ..
         e.stopPropagation();
         onClick();
       } : undefined}
-      {...props} // Pass props from react-grid-layout (style, className, onMouseDown, etc.)
+      {...props} 
     >
         {isEditMode && (
          <DeleteButton className="delete-btn" onClick={(e) => {
@@ -80,10 +108,19 @@ export const CanvasItem = ({ item, isEditMode, onRemove, onClick, isSelected, ..
 
         {type === 'text' ? (
             <div>{content}</div>
+      ) : type === 'status_indicator' ? (
+        <>
+          <Label>{staticLabel || label || 'Status'}</Label>
+          <IconWrapper>
+            {renderIcon()}
+          </IconWrapper>
+        </>
         ) : (
             <>
+              {/* Debugging: display value_raw in label for a moment if needed, or just log */}
+              {/* <div style={{fontSize: 8}}>{JSON.stringify(item.value_raw)}</div> */}
                 <Label>{staticLabel || label}</Label>
-                <Value style={{ fontSize: itemStyle.fontSize }}>{value}</Value>
+              <Value style={{ fontSize: itemStyle.fontSize, color: itemStyle.color }}>{value}</Value>
             </>
         )}
     </ItemContainer>

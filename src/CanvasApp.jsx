@@ -37,6 +37,7 @@ export const CanvasApp = ({ tokens, initialLayout, isEditMode, onSave }) => {
       return {
         ...item,
         value: token ? token.value : 'missing',
+        value_raw: token ? token.value_raw : null, // Ensure raw value available for logic
         label: token ? token.label : item.label, // Update label if it changed in LookML? Or keep stored?
         // Keep stored format/style
       };
@@ -72,7 +73,8 @@ export const CanvasApp = ({ tokens, initialLayout, isEditMode, onSave }) => {
         const token = tokens.find(t => t.id === item.fieldId);
         return {
           ...item,
-          value: token ? token.value : 'missing'
+          value: token ? token.value : 'missing',
+          value_raw: token ? token.value_raw : null // Ensure raw value available for logic
         };
       });
     });
@@ -141,6 +143,7 @@ export const CanvasApp = ({ tokens, initialLayout, isEditMode, onSave }) => {
       type: token.type,
       label: token.label,
       value: token.value,
+      value_raw: token.value_raw, // Ensure logic works immediately on drop
       content: token.content,
       x: layoutItem.x,
       y: layoutItem.y,
@@ -165,6 +168,24 @@ export const CanvasApp = ({ tokens, initialLayout, isEditMode, onSave }) => {
   const handleUpdateItem = (id, updates) => {
     const updatedItems = items.map(item => {
       if (item.i === id) {
+        // If we are updating the fieldId, we must immediately grab the new value/label from tokens
+        if (updates.fieldId) {
+          const token = tokens.find(t => t.id === updates.fieldId);
+          // We can return early here with the fresh token data
+          // We also want to preserve existing style unless overridden? 
+          // Logic below handles style merging, so let's just prep the base new props
+          const newProps = {
+            ...item,
+            ...updates,
+            value: token ? token.value : 'missing',
+            value_raw: token ? token.value_raw : null,
+            label: token ? token.label : item.label,
+          };
+          // deep merge helper for style (reusing existing logic below for consistency)
+          const newStyle = updates.style ? { ...item.style, ...updates.style } : item.style;
+          return { ...newProps, style: newStyle };
+        }
+
         // deep merge helper for style
         const newStyle = updates.style ? { ...item.style, ...updates.style } : item.style;
         return { ...item, ...updates, style: newStyle };

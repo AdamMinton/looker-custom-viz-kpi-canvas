@@ -12,11 +12,14 @@ export const transformDataToTokens = (data, queryResponse) => {
   if (measures) {
     measures.forEach(measure => {
       const cell = firstRow[measure.name];
+      // Looker data cell: { value: 123, rendered: "123", links: [] }
+      // Sometimes just { value: 123 }
+      const raw = cell && typeof cell.value !== 'undefined' ? cell.value : null;
       tokens.push({
         id: measure.name,
         label: measure.label_short || measure.label,
         value: cell ? (cell.rendered || cell.value) : '--',
-        value_raw: cell ? cell.value : null,
+        value_raw: raw,
         type: 'measure',
         is_numeric: measure.is_numeric
       });

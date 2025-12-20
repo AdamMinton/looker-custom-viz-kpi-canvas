@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Type, Grid, Settings, AlignLeft, AlignCenter, AlignRight } from 'lucide-react';
+import { Type, Grid, Settings, AlignLeft, AlignCenter, AlignRight, Plus, Trash2, Activity } from 'lucide-react';
 
 const SidebarContainer = styled.div`
   width: 300px;
@@ -119,6 +119,21 @@ export const Sidebar = ({ tokens, selectedItem, onUpdateItem }) => {
                         />
                     </FormGroup>
 
+                    {(selectedItem.type === 'measure' || selectedItem.type === 'status_indicator') && (
+                        <FormGroup>
+                            <label>Data Binding</label>
+                            <select
+                                value={selectedItem.fieldId || ''}
+                                onChange={(e) => onUpdateItem(selectedItem.i, { fieldId: e.target.value })}
+                            >
+                                <option value="">-- Select Metric --</option>
+                                {tokens.map(token => (
+                                    <option key={token.id} value={token.id}>{token.label}</option>
+                                ))}
+                            </select>
+                        </FormGroup>
+                    )}
+
                     {selectedItem.type === 'text' && (
                         <FormGroup>
                             <label>Content</label>
@@ -165,6 +180,115 @@ export const Sidebar = ({ tokens, selectedItem, onUpdateItem }) => {
                         </IconGroup>
                     </FormGroup>
 
+                    {/* Conditional Logic Editor */}
+                    <Section style={{ borderBottom: 'none' }}>
+                        <SectionTitle>
+                            Conditional Logic
+                            <button
+                                style={{ marginLeft: 'auto', background: 'none', border: 'none', cursor: 'pointer', color: '#1a73e8' }}
+                                onClick={() => {
+                                    const newRule = {
+                                        id: Date.now().toString(),
+                                        operator: 'lt',
+                                        threshold: 0,
+                                        styleTarget: 'text',
+                                        effectValue: '#ff0000'
+                                    };
+                                    const currentRules = selectedItem.rules || [];
+                                    onUpdateItem(selectedItem.i, { rules: [...currentRules, newRule] });
+                                }}
+                            >
+                                <Plus size={16} />
+                            </button>
+                        </SectionTitle>
+
+                        {(selectedItem.rules || []).map((rule, idx) => (
+                            <div key={rule.id} style={{ background: '#f8f9fa', padding: '8px', marginBottom: '8px', borderRadius: '4px', border: '1px solid #eee' }}>
+                                <div style={{ display: 'flex', gap: '4px', marginBottom: '4px' }}>
+                                    <select
+                                        value={rule.operator}
+                                        onChange={(e) => {
+                                            const updatedRules = [...selectedItem.rules];
+                                            updatedRules[idx] = { ...rule, operator: e.target.value };
+                                            onUpdateItem(selectedItem.i, { rules: updatedRules });
+                                        }}
+                                        style={{ flex: 1, padding: '4px', border: '1px solid #ddd', borderRadius: '4px' }}
+                                    >
+                                        <option value="gt">&gt;</option>
+                                        <option value="lt">&lt;</option>
+                                        <option value="gte">&ge;</option>
+                                        <option value="lte">&le;</option>
+                                        <option value="eq">=</option>
+                                        <option value="between">Btwn</option>
+                                    </select>
+                                    <input
+                                        type="number"
+                                        value={rule.threshold}
+                                        onChange={(e) => {
+                                            const updatedRules = [...selectedItem.rules];
+                                            updatedRules[idx] = { ...rule, threshold: e.target.value };
+                                            onUpdateItem(selectedItem.i, { rules: updatedRules });
+                                        }}
+                                        style={{ width: '60px', padding: '4px', border: '1px solid #ddd', borderRadius: '4px' }}
+                                        placeholder="Val"
+                                    />
+                                </div>
+
+                                {rule.operator === 'between' && (
+                                    <div style={{ marginBottom: '4px' }}>
+                                        <input
+                                            type="number"
+                                            value={rule.threshold_secondary || 0}
+                                            onChange={(e) => {
+                                                const updatedRules = [...selectedItem.rules];
+                                                updatedRules[idx] = { ...rule, threshold_secondary: e.target.value };
+                                                onUpdateItem(selectedItem.i, { rules: updatedRules });
+                                            }}
+                                            style={{ width: '100%', padding: '4px', border: '1px solid #ddd', borderRadius: '4px' }}
+                                            placeholder="Secondary Val"
+                                        />
+                                    </div>
+                                )}
+
+                                <div style={{ display: 'flex', gap: '4px', alignItems: 'center' }}>
+                                    <select
+                                        value={rule.styleTarget}
+                                        onChange={(e) => {
+                                            const updatedRules = [...selectedItem.rules];
+                                            updatedRules[idx] = { ...rule, styleTarget: e.target.value };
+                                            onUpdateItem(selectedItem.i, { rules: updatedRules });
+                                        }}
+                                        style={{ flex: 1, padding: '4px', border: '1px solid #ddd', borderRadius: '4px' }}
+                                    >
+                                        <option value="text">Text Color</option>
+                                        <option value="background">Background</option>
+                                        {/* Simple way to change icon color is using text color usually, or separate target? */}
+                                        <option value="icon">Icon Color</option>
+                                    </select>
+                                    <input
+                                        type="color"
+                                        value={rule.effectValue}
+                                        onChange={(e) => {
+                                            const updatedRules = [...selectedItem.rules];
+                                            updatedRules[idx] = { ...rule, effectValue: e.target.value };
+                                            onUpdateItem(selectedItem.i, { rules: updatedRules });
+                                        }}
+                                        style={{ width: '30px', height: '28px', padding: '0', border: 'none' }}
+                                    />
+                                    <button
+                                        onClick={() => {
+                                            const updatedRules = selectedItem.rules.filter(r => r.id !== rule.id);
+                                            onUpdateItem(selectedItem.i, { rules: updatedRules });
+                                        }}
+                                        style={{ border: 'none', background: 'none', cursor: 'pointer', color: '#dc3545', marginLeft: 'auto' }}
+                                    >
+                                        <Trash2 size={14} />
+                                    </button>
+                                </div>
+                            </div>
+                        ))}
+                    </Section>
+
                 </Section>
             ) : (
                 <Section style={{ padding: '32px 16px', textAlign: 'center', color: '#999' }}>
@@ -194,6 +318,13 @@ export const Sidebar = ({ tokens, selectedItem, onUpdateItem }) => {
                     unselectable="on"
                 >
                     <Type size={14} /> Static Text Block
+                </DraggableItem>
+                <DraggableItem
+                    draggable={true}
+                    onDragStart={(e) => handleDragStart(e, { type: 'status_indicator', label: 'Status', rules: [] })}
+                    unselectable="on"
+                >
+                    <Activity size={14} /> Status Indicator
                 </DraggableItem>
             </Section>
         </SidebarContainer>
