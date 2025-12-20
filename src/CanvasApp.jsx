@@ -91,9 +91,13 @@ export const CanvasApp = ({ tokens, initialLayout, isEditMode, onSave }) => {
 
   // Save Logic
   // Debounce the save to Looker
+  const lastModificationTime = useRef(initialLayout?.timestamp || 0);
+
+  // Debounce the save to Looker
   const debouncedSave = useCallback(
-    debounce((currentItems) => {
+    debounce((currentItems, timestamp) => {
       const state = {
+        timestamp,
         items: currentItems.map(item => ({
           i: item.i,
           fieldId: item.fieldId,
@@ -101,7 +105,11 @@ export const CanvasApp = ({ tokens, initialLayout, isEditMode, onSave }) => {
           x: item.x, y: item.y, w: item.w, h: item.h,
           style: item.style,
           staticLabel: item.staticLabel,
-          content: item.content
+          value: item.value,
+          value_raw: item.value_raw,
+          html: item.html,
+          content: item.content,
+          rules: item.rules
         }))
       };
       onSave(state);
@@ -110,9 +118,11 @@ export const CanvasApp = ({ tokens, initialLayout, isEditMode, onSave }) => {
   );
 
   const updateItems = (newItems) => {
+    const now = Date.now();
+    lastModificationTime.current = now;
     setItems(newItems);
     if (isEditMode) {
-      debouncedSave(newItems);
+      debouncedSave(newItems, now);
     }
   };
 
