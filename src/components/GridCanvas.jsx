@@ -74,16 +74,24 @@ export const GridCanvas = ({
         >
             <ResponsiveGridLayout
                 className="layout"
-                layouts={{ lg: layout }}
+                layouts={{ lg: layout, md: layout, sm: layout, xs: layout, xxs: layout }}
                 breakpoints={{ lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 }}
                 // Responsive columns to allow items to stack/flow down on smaller screens
+                // We permit stacking on mobile (xs) for readability
                 cols={{ lg: 12, md: 10, sm: 6, xs: 4, xxs: 2 }}
                 rowHeight={50}
                 width={width}
                 isDraggable={isEditMode}
                 isResizable={isEditMode}
                 isDroppable={isEditMode}
-                onLayoutChange={(currentLayout) => onLayoutChange(currentLayout)}
+                onLayoutChange={(currentLayout) => {
+                    // CRITICAL FIX: Only update the master layout state when in Edit Mode.
+                    // This prevents transient responsive reflows (e.g. stacking on mobile) from 
+                    // overwriting the persistent layout configuration.
+                    if (isEditMode) {
+                        onLayoutChange(currentLayout);
+                    }
+                }}
                 onDrop={onDrop}
                 droppingItem={{ i: 'dropping', w: 2, h: 2, placeholder: true }}
                 measureBeforeMount={false}
@@ -96,7 +104,7 @@ export const GridCanvas = ({
                 }}
             >
                 {items.map(item => (
-                    <div key={item.i} data-grid={{ x: item.x, y: item.y, w: item.w, h: item.h }}>
+                    <div key={item.i}>
                         <CanvasItem
                             item={item}
                             isEditMode={isEditMode}
