@@ -75,7 +75,8 @@ export const GridCanvas = ({
                 className="layout"
                 layouts={{ lg: layout }}
                 breakpoints={{ lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 }}
-                cols={{ lg: 12, md: 10, sm: 6, xs: 4, xxs: 2 }}
+                // Lock columns to 12 across all breakpoints to prevent reflow during sidebar toggle
+                cols={{ lg: 12, md: 12, sm: 12, xs: 12, xxs: 12 }}
                 rowHeight={50}
                 width={width}
                 isDraggable={isEditMode}
@@ -86,7 +87,12 @@ export const GridCanvas = ({
                 droppingItem={{ i: 'dropping', w: 2, h: 2, placeholder: true }}
                 measureBeforeMount={false}
                 useCSSTransforms={true}
-                style={{ minHeight: '600px' }}
+                // Calculate dynamic minHeight based on items to avoid "too large" canvas
+                style={{
+                    minHeight: items.length > 0
+                        ? (Math.max(...items.map(i => i.y + i.h)) * 50 + 100) + 'px'
+                        : '200px'
+                }}
             >
                 {items.map(item => (
                     <div key={item.i} data-grid={{ x: item.x, y: item.y, w: item.w, h: item.h }}>
