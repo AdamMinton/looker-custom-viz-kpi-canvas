@@ -119,8 +119,15 @@ export const CanvasItem = ({ item, isEditMode, onRemove, onClick, isSelected, ..
             <>
               {/* Debugging: display value_raw in label for a moment if needed, or just log */}
               {/* <div style={{fontSize: 8}}>{JSON.stringify(item.value_raw)}</div> */}
-                <Label>{staticLabel || label}</Label>
-              <Value style={{ fontSize: itemStyle.fontSize, color: itemStyle.color }}>{value}</Value>
+              <Label>{staticLabel || label}</Label>
+              {item.html ? (
+                <Value
+                  style={{ fontSize: itemStyle.fontSize, color: itemStyle.color }}
+                  dangerouslySetInnerHTML={{ __html: item.html }}
+                />
+              ) : (
+                  <Value style={{ fontSize: itemStyle.fontSize, color: itemStyle.color }}>{value}</Value>
+              )}
             </>
         )}
     </ItemContainer>

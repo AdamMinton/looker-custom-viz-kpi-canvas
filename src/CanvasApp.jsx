@@ -54,12 +54,21 @@ export const CanvasApp = ({ tokens, initialLayout, isEditMode, onSave }) => {
     console.log("CanvasApp received new initialLayout:", initialLayout);
 
     // Only update if looks different from current state (State Mismatch)
+    // AND if the remote timestamp is newer or equal to our last local modification
+    const remoteTimestamp = initialLayout.timestamp || 0;
+    if (remoteTimestamp < lastModificationTime.current) {
+      console.warn("Ignoring stale update from Looker", remoteTimestamp, lastModificationTime.current);
+      return;
+    }
+
     const hydratedNewItems = hydrateItems(initialLayout.items);
 
     const isDifferent = JSON.stringify(items.map(i => ({ ...i, value: '' }))) !== JSON.stringify(hydratedNewItems.map(i => ({ ...i, value: '' })));
 
     if (isDifferent) {
       console.log("Hydrating items from new layout (State Mismatch)");
+      // Update our local timestamp to match the accepted remote one to prevent future false positives
+      lastModificationTime.current = remoteTimestamp;
       setItems(hydratedNewItems);
     }
   }, [initialLayout]);
@@ -144,6 +153,7 @@ export const CanvasApp = ({ tokens, initialLayout, isEditMode, onSave }) => {
       label: token.label,
       value: token.value,
       value_raw: token.value_raw, // Ensure logic works immediately on drop
+      html: token.html,
       content: token.content,
       x: layoutItem.x,
       y: layoutItem.y,
@@ -179,6 +189,7 @@ export const CanvasApp = ({ tokens, initialLayout, isEditMode, onSave }) => {
             ...updates,
             value: token ? token.value : 'missing',
             value_raw: token ? token.value_raw : null,
+            html: token ? token.html : null,
             label: token ? token.label : item.label,
           };
           // deep merge helper for style (reusing existing logic below for consistency)

@@ -20,6 +20,7 @@ export const transformDataToTokens = (data, queryResponse) => {
         label: measure.label_short || measure.label,
         value: cell ? (cell.rendered || cell.value) : '--',
         value_raw: raw,
+        html: cell ? cell.html : null,
         type: 'measure',
         is_numeric: measure.is_numeric
       });
