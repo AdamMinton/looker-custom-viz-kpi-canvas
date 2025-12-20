@@ -84,13 +84,21 @@ export const GridCanvas = ({
                 isDraggable={isEditMode}
                 isResizable={isEditMode}
                 isDroppable={isEditMode}
-                onLayoutChange={(currentLayout) => {
-                    // CRITICAL FIX: Only update the master layout state when in Edit Mode.
-                    // This prevents transient responsive reflows (e.g. stacking on mobile) from 
-                    // overwriting the persistent layout configuration.
-                    if (isEditMode) {
-                        onLayoutChange(currentLayout);
-                    }
+                onLayoutChange={(currentLayout, allLayouts) => {
+                    // We DO NOT sync back to the parent 'items' state here anymore.
+                    // Doing so would capture "responsive reflows" (e.g. stacking on mobile)
+                    // and permanently overwrite the desktop layout.
+                    console.log("RGL Layout Change (Reflow/Interaction) - Ignoring for persistence", currentLayout);
+                }}
+                onDragStop={(layout) => {
+                    // Only save state when the user explicitly finishes a drag action
+                    console.log("Drag Stop - Saving Layout");
+                    onLayoutChange(layout);
+                }}
+                onResizeStop={(layout) => {
+                    // Only save state when the user explicitly finishes a resize action
+                    console.log("Resize Stop - Saving Layout");
+                    onLayoutChange(layout);
                 }}
                 onDrop={onDrop}
                 droppingItem={{ i: 'dropping', w: 2, h: 2, placeholder: true }}
