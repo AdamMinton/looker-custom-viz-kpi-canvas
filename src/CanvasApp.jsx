@@ -51,13 +51,12 @@ export const CanvasApp = ({ tokens, initialLayout, isEditMode, onSave, rowIntegr
   useEffect(() => {
     if (!initialLayout || !initialLayout.items) return;
 
-    console.log("CanvasApp received new initialLayout:", initialLayout);
+
 
     // Only update if looks different from current state (State Mismatch)
     // AND if the remote timestamp is newer or equal to our last local modification
     const remoteTimestamp = initialLayout.timestamp || 0;
     if (remoteTimestamp < lastModificationTime.current) {
-      console.warn("Ignoring stale update from Looker", remoteTimestamp, lastModificationTime.current);
       return;
     }
 
@@ -66,7 +65,7 @@ export const CanvasApp = ({ tokens, initialLayout, isEditMode, onSave, rowIntegr
     const isDifferent = JSON.stringify(items.map(i => ({ ...i, value: '' }))) !== JSON.stringify(hydratedNewItems.map(i => ({ ...i, value: '' })));
 
     if (isDifferent) {
-      console.log("Hydrating items from new layout (State Mismatch)");
+
       // Update our local timestamp to match the accepted remote one to prevent future false positives
       lastModificationTime.current = remoteTimestamp;
       setItems(hydratedNewItems);
@@ -140,19 +139,15 @@ export const CanvasApp = ({ tokens, initialLayout, isEditMode, onSave, rowIntegr
   };
 
   const handleDrop = (layout, layoutItem, _event) => {
-    console.log("onDrop fired!", layoutItem);
     // The _event in RGL onDrop matches the drag event
     // We parse the dataTransfer to get the token
     const event = _event.nativeEvent || _event;
-    console.log("Drop event:", event);
 
     // In some browsers/React versions, dataTransfer might be empty in the drop event if not handled correctly.
     // But let's check what we get.
     const dataStr = event.dataTransfer ? event.dataTransfer.getData("text/plain") : null;
-    console.log("Dropped data:", dataStr);
 
     if (!dataStr) {
-      console.warn("No dataStr found in drop event");
       return;
     }
 

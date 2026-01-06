@@ -71,10 +71,7 @@ looker.plugins.visualizations.add({
     let initialLayout = { items: [] };
     try {
       if (config.canvas_layout_state) {
-        console.log("Parsing canvas_layout_state:", config.canvas_layout_state);
         initialLayout = JSON.parse(config.canvas_layout_state);
-      } else {
-        console.log("No canvas_layout_state found in config");
       }
     } catch (e) {
       console.error("KPI Canvas: Failed to parse layout state", e);
@@ -95,8 +92,6 @@ looker.plugins.visualizations.add({
           // Safety check for trigger
           if (this.trigger) {
             this.trigger('updateConfig', updatePayload);
-          } else {
-            console.warn("trigger not available on viz object", updatePayload);
           }
         }}
       />,

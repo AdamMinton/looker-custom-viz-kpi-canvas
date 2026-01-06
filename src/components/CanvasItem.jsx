@@ -71,40 +71,13 @@ export const CanvasItem = ({ item, isEditMode = false, onRemove, onClick, isSele
   };
 
   // Apply Conditional Logic
-  // We mock a token object using 'value_raw' if available in item (which comes from hydration)
   if (rules && rules.length > 0) {
-    // NOTE: We rely on 'item' having value_raw populated during hydration in CanvasApp
     const effectiveStyle = evaluateRules({ value_raw: item.value_raw }, rules, itemStyle);
     itemStyle = { ...itemStyle, ...effectiveStyle };
   }
 
-  // Scale font size for Compact Mode
-  // If it's a pixel string (e.g. "24px"), parse, scale, and repack
-  // If no unit, assume px
-  // WE DO THIS LAST to ensure even rule-based font sizes are scaled
-  if (props.compactMode && itemStyle.fontSize) {
-    const sizeStr = String(itemStyle.fontSize);
-    const match = sizeStr.match(/(\d+)(\D*)/);
-    if (match) {
-      const val = parseFloat(match[1]);
-      const unit = match[2] || 'px';
-      // Scale down by 0.75x roughly, or just subtract a few pixels? 
-      // Scaling is usually safer for large fonts.
-      const scaledVal = Math.max(10, Math.floor(val * 0.75));
-      itemStyle.fontSize = `${scaledVal}${unit}`;
-    }
-  }
-
   const renderIcon = () => {
-    // Default icon or specific one from rules?
-    // For now, let's just use some logic or a default Circle
-    // If we implement icon selection in rules, we'd read it from itemStyle.icon or similar?
-    // But the spec says "Status Indicator" is a traffic light.
-
-    const IconComponent = Circle; // Default
-    // We could map specific icon names if we extended the rule system to return icon names.
-    // For MVP "traffic light", the Color is the main thing.
-
+    const IconComponent = Circle; 
     return <IconComponent size={parseInt(itemStyle.fontSize) || 24} color={itemStyle.color} fill={itemStyle.color} />;
   };
 
@@ -130,7 +103,9 @@ export const CanvasItem = ({ item, isEditMode = false, onRemove, onClick, isSele
         )}
 
         {type === 'text' ? (
-            <div>{content}</div>
+        <div style={{ fontSize: itemStyle.fontSize, color: itemStyle.color }}>
+          {content}
+        </div>
       ) : type === 'status_indicator' ? (
         <>
             <Label compactMode={compactMode}>{staticLabel || label || 'Status'}</Label>
@@ -140,8 +115,6 @@ export const CanvasItem = ({ item, isEditMode = false, onRemove, onClick, isSele
         </>
         ) : (
             <>
-              {/* Debugging: display value_raw in label for a moment if needed, or just log */}
-              {/* <div style={{fontSize: 8}}>{JSON.stringify(item.value_raw)}</div> */}
               {(item.showLabel !== false) && <Label compactMode={compactMode}>{staticLabel || label}</Label>}
               {item.html ? (
                 <Value
