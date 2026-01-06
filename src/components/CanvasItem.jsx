@@ -104,11 +104,11 @@ export const CanvasItem = ({ item, isEditMode = false, onRemove, onClick, isSele
 
         {type === 'text' ? (
         <div style={{ fontSize: itemStyle.fontSize, color: itemStyle.color }}>
-          {content}
+          {(item.showLabel !== false) && content}
         </div>
       ) : type === 'status_indicator' ? (
         <>
-            <Label compactMode={compactMode}>{staticLabel || label || 'Status'}</Label>
+            {(item.showLabel !== false) && <Label compactMode={compactMode}>{staticLabel || label || 'Status'}</Label>}
           <IconWrapper>
             {renderIcon()}
           </IconWrapper>

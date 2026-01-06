@@ -110,14 +110,16 @@ export const Sidebar = ({ tokens, selectedItem, onUpdateItem }) => {
                 <Section>
                     <SectionTitle><Settings size={14} /> Properties</SectionTitle>
                     
-                    <FormGroup>
-                        <label>Label Text</label>
-                        <input 
-                            type="text" 
-                            value={selectedItem.staticLabel || selectedItem.label || ''} 
-                            onChange={(e) => onUpdateItem(selectedItem.i, { staticLabel: e.target.value })}
-                        />
-                    </FormGroup>
+                    {selectedItem.type !== 'text' && (
+                        <FormGroup>
+                            <label>Label Text</label>
+                            <input
+                                type="text"
+                                value={selectedItem.staticLabel || selectedItem.label || ''}
+                                onChange={(e) => onUpdateItem(selectedItem.i, { staticLabel: e.target.value })}
+                            />
+                        </FormGroup>
+                    )}
 
                     <FormGroup>
                         <label>
@@ -127,7 +129,7 @@ export const Sidebar = ({ tokens, selectedItem, onUpdateItem }) => {
                                 onChange={(e) => onUpdateItem(selectedItem.i, { showLabel: e.target.checked })}
                                 style={{ width: 'auto', marginRight: '8px' }}
                             />
-                            Show Label
+                            {selectedItem.type === 'text' ? 'Show Content' : 'Show Label'}
                         </label>
                     </FormGroup>
 
