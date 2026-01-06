@@ -13,6 +13,10 @@ window.looker = {
       },
     },
   },
+  // Simplified trigger for events
+  trigger: function (event, args) {
+    console.log(`Looker Event: ${event}`, args);
+  }
 };
 
 // Mock the LookerCharts utility library required by hello_world.js
