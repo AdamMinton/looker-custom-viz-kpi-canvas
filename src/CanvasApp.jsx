@@ -38,7 +38,8 @@ export const CanvasApp = ({ tokens, initialLayout, isEditMode, onSave, rowIntegr
         ...item,
         value: token ? token.value : 'missing',
         value_raw: token ? token.value_raw : null, // Ensure raw value available for logic
-        label: token ? token.label : item.label, // Update label if it changed in LookML? Or keep stored?
+        html: token ? token.html : null, // Sync rendered HTML (formatted value)
+        label: token ? token.label : item.label, // Update label if it changed in Looker
         // Keep stored format/style
       };
     });
@@ -82,7 +83,9 @@ export const CanvasApp = ({ tokens, initialLayout, isEditMode, onSave, rowIntegr
         return {
           ...item,
           value: token ? token.value : 'missing',
-          value_raw: token ? token.value_raw : null // Ensure raw value available for logic
+          value_raw: token ? token.value_raw : null, // Ensure raw value available for logic
+          html: token ? token.html : null, // Sync rendered HTML (formatted value)
+          label: token ? token.label : item.label
         };
       });
     });
