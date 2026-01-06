@@ -97,3 +97,10 @@ We have created a local 'harness' that mimics the Looker Custom Visualization Bu
 - **Config/Data/Query Editors**: Modify the visualization inputs on the fly.
 - **Collapsible Sidebar**: Maximize the visualization viewing area.
 - **Auto-Reload**: Clicking 'RUN' immediately updates the visualization.
+
+## References
+
+This project utilizes resources from the following Looker Open Source repositories:
+-   **Custom Visualizations v2**: [https://github.com/looker-open-source/custom_visualizations_v2](https://github.com/looker-open-source/custom_visualizations_v2) (Source for visualization examples and docs)
+-   **Custom Viz Builder**: [https://github.com/looker-open-source/custom-viz-builder](https://github.com/looker-open-source/custom-viz-builder) (Reference for the local harness)
+

@@ -4,7 +4,6 @@ const fs = require('fs');
 const webpackConfig = {
   mode: 'production',
   entry: {
-    custom_pivot: './src/custom_pivot.js',
     kpi_canvas: './src/kpi_canvas.js'
   },
   output: {
