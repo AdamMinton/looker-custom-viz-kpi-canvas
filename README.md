@@ -80,3 +80,20 @@ This project uses a custom `require` pattern for `react-grid-layout` to avoid ES
 The drag functionality relies on standard HTML5 events.
 *   **Note**: The `Sidebar` uses `unselectable="on"` and `draggable={true}` to initiate drags.
 *   **Note**: The `GridCanvas` wrapper handles `onDragOver` with `event.preventDefault()` to explicitly allow drops.
+
+## Local Harness (Custom Viz Builder)
+
+We have created a local 'harness' that mimics the Looker Custom Visualization Builder, allowing development without a full Looker instance.
+
+### How to Run
+1.  Start a local HTTP server in the repository root:
+    ```bash
+    python3 -m http.server 8081
+    ```
+2.  Open the harness in your browser:
+    [http://localhost:8081/harness/builder.html](http://localhost:8081/harness/builder.html)
+
+### Features
+- **Config/Data/Query Editors**: Modify the visualization inputs on the fly.
+- **Collapsible Sidebar**: Maximize the visualization viewing area.
+- **Auto-Reload**: Clicking 'RUN' immediately updates the visualization.

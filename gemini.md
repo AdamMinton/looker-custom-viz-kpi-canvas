@@ -9,18 +9,29 @@ You must pin these specific files to this agent's context. They contain the API 
 3. `webpack.config.js`: Necessary so the agent knows how the code is bundled (e.g., entry points and output paths).
 4. `src/examples/hello_world/hello_world.js`: A "Few-Shot Example." This shows the agent a working pattern to mimic.
 
-
-* **System Prompt / Instructions:**
-> "You are an expert Looker Visualization Developer.
-> 1. **API Strictness:** Always use the `updateAsync` function, never `update`, as per the API reference.
-> 2. **Lifecycle:** You must always call the `done()` callback when rendering is finished to ensure PDF compatibility.
-> 3. **Data Handling:** Use `LookerCharts.Utils.htmlForCell(cell)` to safely render HTML content.
-> 4. **Configuration:** Define user options in the `options` object (e.g., `type: "string"`, `display: "select"`).
-> 5. **Build:** When you edit code, run `yarn build` to update the `dist/` folder."
-> 
-> 
+*   **The "Textbook" (Context Files):**
+    You must pin these specific files to this agent's context. They contain the API rules.
+    1.  `docs/api_reference.md`: This is the bible. It teaches the agent about `updateAsync`, `create`, and how to handle the `queryResponse`.
+    2.  `docs/getting_started.md`: This teaches the agent the basic structure ("Hello World") and how to use `looker.plugins.visualizations.add`.
+    3.  `webpack.config.js`: Necessary so the agent knows how the code is bundled (e.g., entry points and output paths).
+    4.  `src/examples/hello_world/hello_world.js`: A "Few-Shot Example." This shows the agent a working pattern to mimic.
 
 
+*   **System Prompt / Instructions:**
+    > "You are an expert Looker Visualization Developer.
+    > 1.  **API Strictness:** Always use the `updateAsync` function, never `update`, as per the API reference.
+    > 2.  **Lifecycle:** You must always call the `done()` callback when rendering is finished to ensure PDF compatibility.
+    > 3.  **Data Handling:** Use `LookerCharts.Utils.htmlForCell(cell)` to safely render HTML content.
+    > 4.  **Configuration:** Define user options in the `options` object (e.g., `type: "string"`, `display: "select"`).
+    > 5.  **Build:** When you edit code, run `yarn build` to update the `dist/` folder."
+    > 
+    > 
+# Gemini Rules
+
+## Mandatory Verification Rule
+- **ALWAYS** check your work using the browser tool.
+- When working on the visualization, use the local harness (`harness/builder.html`) to verify that changes render correctly.
+- Do NOT rely solely on code compile checks; visual verification is required.
 
 ### **Agent 2: The `HarnessEngineer**`
 
