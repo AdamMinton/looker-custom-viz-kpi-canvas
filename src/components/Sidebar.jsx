@@ -111,12 +111,24 @@ export const Sidebar = ({ tokens, selectedItem, onUpdateItem }) => {
                     <SectionTitle><Settings size={14} /> Properties</SectionTitle>
                     
                     <FormGroup>
-                        <label>Label</label>
+                        <label>Label Text</label>
                         <input 
                             type="text" 
                             value={selectedItem.staticLabel || selectedItem.label || ''} 
                             onChange={(e) => onUpdateItem(selectedItem.i, { staticLabel: e.target.value })}
                         />
+                    </FormGroup>
+
+                    <FormGroup>
+                        <label>
+                            <input
+                                type="checkbox"
+                                checked={selectedItem.showLabel !== false}
+                                onChange={(e) => onUpdateItem(selectedItem.i, { showLabel: e.target.checked })}
+                                style={{ width: 'auto', marginRight: '8px' }}
+                            />
+                            Show Label
+                        </label>
                     </FormGroup>
 
                     {(selectedItem.type === 'measure' || selectedItem.type === 'status_indicator') && (

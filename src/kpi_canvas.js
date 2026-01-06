@@ -11,7 +11,31 @@ looker.plugins.visualizations.add({
       type: 'boolean',
       label: 'Edit Mode',
       default: false,
-      section: 'Canvas Configuration'
+      section: 'Canvas Configuration',
+      order: 1
+    },
+    row_integrity: {
+      type: 'boolean',
+      label: 'Row Integrity (Prevent Wrapping)',
+      default: false,
+      section: 'Canvas Configuration',
+      order: 2
+    },
+    compact_mode: {
+      type: 'boolean',
+      label: 'Compact Mode',
+      default: false,
+      section: 'Canvas Configuration',
+      default: false,
+      section: 'Canvas Configuration',
+      order: 3
+    },
+    scale_to_fit: {
+      type: 'boolean',
+      label: 'Scale to Fit (Zoom)',
+      default: false,
+      section: 'Canvas Configuration',
+      order: 4
     },
     canvas_layout_state: {
       type: 'string',
@@ -60,6 +84,10 @@ looker.plugins.visualizations.add({
     ReactDOM.render(
       <CanvasApp
         isEditMode={config.edit_mode}
+        rowIntegrity={config.row_integrity}
+        compactMode={config.compact_mode}
+        showLabels={config.show_labels}
+        scaleToFit={config.scale_to_fit}
         tokens={tokens}
         initialLayout={initialLayout}
         onSave={(newState) => {

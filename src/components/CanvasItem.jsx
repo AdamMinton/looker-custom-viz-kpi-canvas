@@ -13,7 +13,7 @@ const ItemContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: ${props => props.style.textAlign || 'center'};
-  padding: 8px;
+  padding: ${props => props.compactMode ? '4px' : '8px'};
   box-sizing: border-box;
   position: relative;
   overflow: hidden;
@@ -37,14 +37,19 @@ const DeleteButton = styled.div`
 `;
 
 const Label = styled.div`
-  font-size: 12px;
+  font-size: ${props => props.compactMode ? '10px' : '12px'};
   color: #666;
-  margin-bottom: 4px;
+  margin-bottom: ${props => props.compactMode ? '2px' : '4px'};
 `;
 
 const Value = styled.div`
   font-weight: bold;
   white-space: nowrap;
+
+  /* Force inner HTML to inherit font-size in case of inline styles from Looker */
+  & * {
+    font-size: inherit !important;
+  }
 `;
 
 const IconWrapper = styled.div`
@@ -53,7 +58,7 @@ const IconWrapper = styled.div`
   align-items: center;
 `;
 
-export const CanvasItem = ({ item, isEditMode, onRemove, onClick, isSelected, ...props }) => {
+export const CanvasItem = ({ item, isEditMode = false, onRemove, onClick, isSelected, compactMode, ...props }) => {
   const { style, staticLabel, label, value, type, content, rules, value_raw } = item;
 
   // Merge default styles with item styles
@@ -73,6 +78,23 @@ export const CanvasItem = ({ item, isEditMode, onRemove, onClick, isSelected, ..
     itemStyle = { ...itemStyle, ...effectiveStyle };
   }
 
+  // Scale font size for Compact Mode
+  // If it's a pixel string (e.g. "24px"), parse, scale, and repack
+  // If no unit, assume px
+  // WE DO THIS LAST to ensure even rule-based font sizes are scaled
+  if (props.compactMode && itemStyle.fontSize) {
+    const sizeStr = String(itemStyle.fontSize);
+    const match = sizeStr.match(/(\d+)(\D*)/);
+    if (match) {
+      const val = parseFloat(match[1]);
+      const unit = match[2] || 'px';
+      // Scale down by 0.75x roughly, or just subtract a few pixels? 
+      // Scaling is usually safer for large fonts.
+      const scaledVal = Math.max(10, Math.floor(val * 0.75));
+      itemStyle.fontSize = `${scaledVal}${unit}`;
+    }
+  }
+
   const renderIcon = () => {
     // Default icon or specific one from rules?
     // For now, let's just use some logic or a default Circle
@@ -89,6 +111,7 @@ export const CanvasItem = ({ item, isEditMode, onRemove, onClick, isSelected, ..
   return (
     <ItemContainer 
       isEditMode={isEditMode} 
+      compactMode={compactMode}
       style={itemStyle} 
       className={isSelected ? 'selected-item' : ''}
       onClick={isEditMode ? (e) => {
@@ -110,7 +133,7 @@ export const CanvasItem = ({ item, isEditMode, onRemove, onClick, isSelected, ..
             <div>{content}</div>
       ) : type === 'status_indicator' ? (
         <>
-          <Label>{staticLabel || label || 'Status'}</Label>
+            <Label compactMode={compactMode}>{staticLabel || label || 'Status'}</Label>
           <IconWrapper>
             {renderIcon()}
           </IconWrapper>
@@ -119,7 +142,7 @@ export const CanvasItem = ({ item, isEditMode, onRemove, onClick, isSelected, ..
             <>
               {/* Debugging: display value_raw in label for a moment if needed, or just log */}
               {/* <div style={{fontSize: 8}}>{JSON.stringify(item.value_raw)}</div> */}
-              <Label>{staticLabel || label}</Label>
+              {(item.showLabel !== false) && <Label compactMode={compactMode}>{staticLabel || label}</Label>}
               {item.html ? (
                 <Value
                   style={{ fontSize: itemStyle.fontSize, color: itemStyle.color }}

@@ -21,7 +21,7 @@ const CanvasArea = styled.div`
 
 const generateId = () => Math.random().toString(36).substr(2, 9);
 
-export const CanvasApp = ({ tokens, initialLayout, isEditMode, onSave }) => {
+export const CanvasApp = ({ tokens, initialLayout, isEditMode, onSave, rowIntegrity, compactMode, scaleToFit }) => {
   // State
   // We store 'items' which contains both content AND layout data
   // initialLayout structure: { items: [ { i, fieldId, x, y, w, h, ... } ] }
@@ -109,7 +109,8 @@ export const CanvasApp = ({ tokens, initialLayout, isEditMode, onSave }) => {
           value_raw: item.value_raw,
           html: item.html,
           content: item.content,
-          rules: item.rules
+          rules: item.rules,
+          showLabel: item.showLabel
         }))
       };
       onSave(state);
@@ -230,6 +231,9 @@ export const CanvasApp = ({ tokens, initialLayout, isEditMode, onSave }) => {
           onRemoveItem={handleRemoveItem}
           onSelectItem={(id) => setSelectedItemId(id)}
           selectedItemId={selectedItemId}
+          rowIntegrity={rowIntegrity}
+          compactMode={compactMode}
+          scaleToFit={scaleToFit}
         />
       </CanvasArea>
 
