@@ -1,0 +1,1711 @@
+{
+  "parent_id": "4c2ba1fbd2c5114a09dacb3cce3be9b8",
+  "sql_changed": true,
+  "aggregate_table_used_info": null,
+  "added_params": null,
+  "data": [
+    {
+      "order_items.status": {
+        "value": "Shipped"
+      },
+      "order_items.created_month": {
+        "value": "2026-01",
+        "links": [
+          {
+            "type": "drill",
+            "field_name": "order_items.created_week",
+            "url": "/explore/calendar_nrf/order_items_parameter?fields=order_items.count,order_items.status,order_items.shipped_year,order_items.shipped_week,order_items.created_week&pivots=order_items.shipped_year,order_items.shipped_week&f[arbitrary_period_analysis.first_period_filter]=7+days+ago+for+7+days&limit=500&column_limit=50&f[order_items.created_month]=2026-01",
+            "lv": "Created Week",
+            "value": "2026-01"
+          },
+          {
+            "type": "drill",
+            "field_name": "order_items.created_date",
+            "url": "/explore/calendar_nrf/order_items_parameter?fields=order_items.count,order_items.status,order_items.shipped_year,order_items.shipped_week,order_items.created_date&pivots=order_items.shipped_year,order_items.shipped_week&f[arbitrary_period_analysis.first_period_filter]=7+days+ago+for+7+days&limit=500&column_limit=50&f[order_items.created_month]=2026-01",
+            "lv": "Created Date",
+            "value": "2026-01"
+          },
+          {
+            "type": "drill",
+            "field_name": "order_items.created_time",
+            "url": "/explore/calendar_nrf/order_items_parameter?fields=order_items.count,order_items.status,order_items.shipped_year,order_items.shipped_week,order_items.created_time&pivots=order_items.shipped_year,order_items.shipped_week&f[arbitrary_period_analysis.first_period_filter]=7+days+ago+for+7+days&limit=500&column_limit=50&f[order_items.created_month]=2026-01",
+            "lv": "Created Time",
+            "value": "2026-01"
+          }
+        ]
+      },
+      "order_items.count": {
+        "2026|FIELD|2025-12-29": {
+          "value": 86,
+          "rendered": "86",
+          "links": [
+            {
+              "label": "Show All 86",
+              "label_prefix": "Show All",
+              "label_value": "86",
+              "url": "/explore/calendar_nrf/order_items_parameter?fields=order_items.id&f[order_items.status]=Shipped&f[order_items.shipped_year]=2026&f[order_items.shipped_week]=2025-12-29+for+7+days&f[order_items.created_month]=2026-01&f[arbitrary_period_analysis.first_period_filter]=7+days+ago+for+7+days&query_timezone=US%2FEastern&limit=500",
+              "type": "measure_default"
+            }
+          ],
+          "html": "\n  86\n   "
+        },
+        "2026|FIELD|2026-01-05": {
+          "value": 719,
+          "rendered": "719",
+          "links": [
+            {
+              "label": "Show All 719",
+              "label_prefix": "Show All",
+              "label_value": "719",
+              "url": "/explore/calendar_nrf/order_items_parameter?fields=order_items.id&f[order_items.status]=Shipped&f[order_items.shipped_year]=2026&f[order_items.shipped_week]=2026-01-05+for+7+days&f[order_items.created_month]=2026-01&f[arbitrary_period_analysis.first_period_filter]=7+days+ago+for+7+days&query_timezone=US%2FEastern&limit=500",
+              "type": "measure_default"
+            }
+          ],
+          "html": "\n  719\n   "
+        },
+        "order_items.shipped_year___null|FIELD|order_items.shipped_week___null": {
+          "value": null,
+          "filterable_value": "NULL",
+          "html": ""
+        }
+      }
+    },
+    {
+      "order_items.status": {
+        "value": "Returned"
+      },
+      "order_items.created_month": {
+        "value": "2026-01",
+        "links": [
+          {
+            "type": "drill",
+            "field_name": "order_items.created_week",
+            "url": "/explore/calendar_nrf/order_items_parameter?fields=order_items.count,order_items.status,order_items.shipped_year,order_items.shipped_week,order_items.created_week&pivots=order_items.shipped_year,order_items.shipped_week&f[arbitrary_period_analysis.first_period_filter]=7+days+ago+for+7+days&limit=500&column_limit=50&f[order_items.created_month]=2026-01",
+            "lv": "Created Week",
+            "value": "2026-01"
+          },
+          {
+            "type": "drill",
+            "field_name": "order_items.created_date",
+            "url": "/explore/calendar_nrf/order_items_parameter?fields=order_items.count,order_items.status,order_items.shipped_year,order_items.shipped_week,order_items.created_date&pivots=order_items.shipped_year,order_items.shipped_week&f[arbitrary_period_analysis.first_period_filter]=7+days+ago+for+7+days&limit=500&column_limit=50&f[order_items.created_month]=2026-01",
+            "lv": "Created Date",
+            "value": "2026-01"
+          },
+          {
+            "type": "drill",
+            "field_name": "order_items.created_time",
+            "url": "/explore/calendar_nrf/order_items_parameter?fields=order_items.count,order_items.status,order_items.shipped_year,order_items.shipped_week,order_items.created_time&pivots=order_items.shipped_year,order_items.shipped_week&f[arbitrary_period_analysis.first_period_filter]=7+days+ago+for+7+days&limit=500&column_limit=50&f[order_items.created_month]=2026-01",
+            "lv": "Created Time",
+            "value": "2026-01"
+          }
+        ]
+      },
+      "order_items.count": {
+        "2026|FIELD|2025-12-29": {
+          "value": null,
+          "filterable_value": "NULL",
+          "html": ""
+        },
+        "2026|FIELD|2026-01-05": {
+          "value": 10,
+          "rendered": "10",
+          "links": [
+            {
+              "label": "Show All 10",
+              "label_prefix": "Show All",
+              "label_value": "10",
+              "url": "/explore/calendar_nrf/order_items_parameter?fields=order_items.id&f[order_items.status]=Returned&f[order_items.shipped_year]=2026&f[order_items.shipped_week]=2026-01-05+for+7+days&f[order_items.created_month]=2026-01&f[arbitrary_period_analysis.first_period_filter]=7+days+ago+for+7+days&query_timezone=US%2FEastern&limit=500",
+              "type": "measure_default"
+            }
+          ],
+          "html": "\n  10\n   "
+        },
+        "order_items.shipped_year___null|FIELD|order_items.shipped_week___null": {
+          "value": null,
+          "filterable_value": "NULL",
+          "html": ""
+        }
+      }
+    },
+    {
+      "order_items.status": {
+        "value": "Cancelled"
+      },
+      "order_items.created_month": {
+        "value": "2026-01",
+        "links": [
+          {
+            "type": "drill",
+            "field_name": "order_items.created_week",
+            "url": "/explore/calendar_nrf/order_items_parameter?fields=order_items.count,order_items.status,order_items.shipped_year,order_items.shipped_week,order_items.created_week&pivots=order_items.shipped_year,order_items.shipped_week&f[arbitrary_period_analysis.first_period_filter]=7+days+ago+for+7+days&limit=500&column_limit=50&f[order_items.created_month]=2026-01",
+            "lv": "Created Week",
+            "value": "2026-01"
+          },
+          {
+            "type": "drill",
+            "field_name": "order_items.created_date",
+            "url": "/explore/calendar_nrf/order_items_parameter?fields=order_items.count,order_items.status,order_items.shipped_year,order_items.shipped_week,order_items.created_date&pivots=order_items.shipped_year,order_items.shipped_week&f[arbitrary_period_analysis.first_period_filter]=7+days+ago+for+7+days&limit=500&column_limit=50&f[order_items.created_month]=2026-01",
+            "lv": "Created Date",
+            "value": "2026-01"
+          },
+          {
+            "type": "drill",
+            "field_name": "order_items.created_time",
+            "url": "/explore/calendar_nrf/order_items_parameter?fields=order_items.count,order_items.status,order_items.shipped_year,order_items.shipped_week,order_items.created_time&pivots=order_items.shipped_year,order_items.shipped_week&f[arbitrary_period_analysis.first_period_filter]=7+days+ago+for+7+days&limit=500&column_limit=50&f[order_items.created_month]=2026-01",
+            "lv": "Created Time",
+            "value": "2026-01"
+          }
+        ]
+      },
+      "order_items.count": {
+        "2026|FIELD|2025-12-29": {
+          "value": null,
+          "filterable_value": "NULL",
+          "html": ""
+        },
+        "2026|FIELD|2026-01-05": {
+          "value": null,
+          "filterable_value": "NULL",
+          "html": ""
+        },
+        "order_items.shipped_year___null|FIELD|order_items.shipped_week___null": {
+          "value": 32,
+          "rendered": "32",
+          "links": [
+            {
+              "label": "Show All 32",
+              "label_prefix": "Show All",
+              "label_value": "32",
+              "url": "/explore/calendar_nrf/order_items_parameter?fields=order_items.id&f[order_items.status]=Cancelled&f[order_items.shipped_year]=NULL&f[order_items.shipped_week]=NULL&f[order_items.created_month]=2026-01&f[arbitrary_period_analysis.first_period_filter]=7+days+ago+for+7+days&query_timezone=US%2FEastern&limit=500",
+              "type": "measure_default"
+            }
+          ],
+          "html": "\n  32\n   "
+        }
+      }
+    },
+    {
+      "order_items.status": {
+        "value": "Processing"
+      },
+      "order_items.created_month": {
+        "value": "2026-01",
+        "links": [
+          {
+            "type": "drill",
+            "field_name": "order_items.created_week",
+            "url": "/explore/calendar_nrf/order_items_parameter?fields=order_items.count,order_items.status,order_items.shipped_year,order_items.shipped_week,order_items.created_week&pivots=order_items.shipped_year,order_items.shipped_week&f[arbitrary_period_analysis.first_period_filter]=7+days+ago+for+7+days&limit=500&column_limit=50&f[order_items.created_month]=2026-01",
+            "lv": "Created Week",
+            "value": "2026-01"
+          },
+          {
+            "type": "drill",
+            "field_name": "order_items.created_date",
+            "url": "/explore/calendar_nrf/order_items_parameter?fields=order_items.count,order_items.status,order_items.shipped_year,order_items.shipped_week,order_items.created_date&pivots=order_items.shipped_year,order_items.shipped_week&f[arbitrary_period_analysis.first_period_filter]=7+days+ago+for+7+days&limit=500&column_limit=50&f[order_items.created_month]=2026-01",
+            "lv": "Created Date",
+            "value": "2026-01"
+          },
+          {
+            "type": "drill",
+            "field_name": "order_items.created_time",
+            "url": "/explore/calendar_nrf/order_items_parameter?fields=order_items.count,order_items.status,order_items.shipped_year,order_items.shipped_week,order_items.created_time&pivots=order_items.shipped_year,order_items.shipped_week&f[arbitrary_period_analysis.first_period_filter]=7+days+ago+for+7+days&limit=500&column_limit=50&f[order_items.created_month]=2026-01",
+            "lv": "Created Time",
+            "value": "2026-01"
+          }
+        ]
+      },
+      "order_items.count": {
+        "2026|FIELD|2025-12-29": {
+          "value": null,
+          "filterable_value": "NULL",
+          "html": ""
+        },
+        "2026|FIELD|2026-01-05": {
+          "value": null,
+          "filterable_value": "NULL",
+          "html": ""
+        },
+        "order_items.shipped_year___null|FIELD|order_items.shipped_week___null": {
+          "value": 603,
+          "rendered": "603",
+          "links": [
+            {
+              "label": "Show All 603",
+              "label_prefix": "Show All",
+              "label_value": "603",
+              "url": "/explore/calendar_nrf/order_items_parameter?fields=order_items.id&f[order_items.status]=Processing&f[order_items.shipped_year]=NULL&f[order_items.shipped_week]=NULL&f[order_items.created_month]=2026-01&f[arbitrary_period_analysis.first_period_filter]=7+days+ago+for+7+days&query_timezone=US%2FEastern&limit=500",
+              "type": "measure_default"
+            }
+          ],
+          "html": "\n  603\n   "
+        }
+      }
+    },
+    {
+      "order_items.status": {
+        "value": "Complete"
+      },
+      "order_items.created_month": {
+        "value": "2025-12",
+        "links": [
+          {
+            "type": "drill",
+            "field_name": "order_items.created_week",
+            "url": "/explore/calendar_nrf/order_items_parameter?fields=order_items.count,order_items.status,order_items.shipped_year,order_items.shipped_week,order_items.created_week&pivots=order_items.shipped_year,order_items.shipped_week&f[arbitrary_period_analysis.first_period_filter]=7+days+ago+for+7+days&limit=500&column_limit=50&f[order_items.created_month]=2025-12",
+            "lv": "Created Week",
+            "value": "2025-12"
+          },
+          {
+            "type": "drill",
+            "field_name": "order_items.created_date",
+            "url": "/explore/calendar_nrf/order_items_parameter?fields=order_items.count,order_items.status,order_items.shipped_year,order_items.shipped_week,order_items.created_date&pivots=order_items.shipped_year,order_items.shipped_week&f[arbitrary_period_analysis.first_period_filter]=7+days+ago+for+7+days&limit=500&column_limit=50&f[order_items.created_month]=2025-12",
+            "lv": "Created Date",
+            "value": "2025-12"
+          },
+          {
+            "type": "drill",
+            "field_name": "order_items.created_time",
+            "url": "/explore/calendar_nrf/order_items_parameter?fields=order_items.count,order_items.status,order_items.shipped_year,order_items.shipped_week,order_items.created_time&pivots=order_items.shipped_year,order_items.shipped_week&f[arbitrary_period_analysis.first_period_filter]=7+days+ago+for+7+days&limit=500&column_limit=50&f[order_items.created_month]=2025-12",
+            "lv": "Created Time",
+            "value": "2025-12"
+          }
+        ]
+      },
+      "order_items.count": {
+        "2026|FIELD|2025-12-29": {
+          "value": 183,
+          "rendered": "183",
+          "links": [
+            {
+              "label": "Show All 183",
+              "label_prefix": "Show All",
+              "label_value": "183",
+              "url": "/explore/calendar_nrf/order_items_parameter?fields=order_items.id&f[order_items.status]=Complete&f[order_items.shipped_year]=2026&f[order_items.shipped_week]=2025-12-29+for+7+days&f[order_items.created_month]=2025-12&f[arbitrary_period_analysis.first_period_filter]=7+days+ago+for+7+days&query_timezone=US%2FEastern&limit=500",
+              "type": "measure_default"
+            }
+          ],
+          "html": "\n  183\n   "
+        },
+        "2026|FIELD|2026-01-05": {
+          "value": null,
+          "filterable_value": "NULL",
+          "html": ""
+        },
+        "order_items.shipped_year___null|FIELD|order_items.shipped_week___null": {
+          "value": null,
+          "filterable_value": "NULL",
+          "html": ""
+        }
+      }
+    },
+    {
+      "order_items.status": {
+        "value": "Returned"
+      },
+      "order_items.created_month": {
+        "value": "2025-12",
+        "links": [
+          {
+            "type": "drill",
+            "field_name": "order_items.created_week",
+            "url": "/explore/calendar_nrf/order_items_parameter?fields=order_items.count,order_items.status,order_items.shipped_year,order_items.shipped_week,order_items.created_week&pivots=order_items.shipped_year,order_items.shipped_week&f[arbitrary_period_analysis.first_period_filter]=7+days+ago+for+7+days&limit=500&column_limit=50&f[order_items.created_month]=2025-12",
+            "lv": "Created Week",
+            "value": "2025-12"
+          },
+          {
+            "type": "drill",
+            "field_name": "order_items.created_date",
+            "url": "/explore/calendar_nrf/order_items_parameter?fields=order_items.count,order_items.status,order_items.shipped_year,order_items.shipped_week,order_items.created_date&pivots=order_items.shipped_year,order_items.shipped_week&f[arbitrary_period_analysis.first_period_filter]=7+days+ago+for+7+days&limit=500&column_limit=50&f[order_items.created_month]=2025-12",
+            "lv": "Created Date",
+            "value": "2025-12"
+          },
+          {
+            "type": "drill",
+            "field_name": "order_items.created_time",
+            "url": "/explore/calendar_nrf/order_items_parameter?fields=order_items.count,order_items.status,order_items.shipped_year,order_items.shipped_week,order_items.created_time&pivots=order_items.shipped_year,order_items.shipped_week&f[arbitrary_period_analysis.first_period_filter]=7+days+ago+for+7+days&limit=500&column_limit=50&f[order_items.created_month]=2025-12",
+            "lv": "Created Time",
+            "value": "2025-12"
+          }
+        ]
+      },
+      "order_items.count": {
+        "2026|FIELD|2025-12-29": {
+          "value": 7,
+          "rendered": "7",
+          "links": [
+            {
+              "label": "Show All 7",
+              "label_prefix": "Show All",
+              "label_value": "7",
+              "url": "/explore/calendar_nrf/order_items_parameter?fields=order_items.id&f[order_items.status]=Returned&f[order_items.shipped_year]=2026&f[order_items.shipped_week]=2025-12-29+for+7+days&f[order_items.created_month]=2025-12&f[arbitrary_period_analysis.first_period_filter]=7+days+ago+for+7+days&query_timezone=US%2FEastern&limit=500",
+              "type": "measure_default"
+            }
+          ],
+          "html": "\n  7\n   "
+        },
+        "2026|FIELD|2026-01-05": {
+          "value": 1,
+          "rendered": "1",
+          "links": [
+            {
+              "label": "Show All 1",
+              "label_prefix": "Show All",
+              "label_value": "1",
+              "url": "/explore/calendar_nrf/order_items_parameter?fields=order_items.id&f[order_items.status]=Returned&f[order_items.shipped_year]=2026&f[order_items.shipped_week]=2026-01-05+for+7+days&f[order_items.created_month]=2025-12&f[arbitrary_period_analysis.first_period_filter]=7+days+ago+for+7+days&query_timezone=US%2FEastern&limit=500",
+              "type": "measure_default"
+            }
+          ],
+          "html": "\n  1\n   "
+        },
+        "order_items.shipped_year___null|FIELD|order_items.shipped_week___null": {
+          "value": null,
+          "filterable_value": "NULL",
+          "html": ""
+        }
+      }
+    },
+    {
+      "order_items.status": {
+        "value": "Shipped"
+      },
+      "order_items.created_month": {
+        "value": "2025-12",
+        "links": [
+          {
+            "type": "drill",
+            "field_name": "order_items.created_week",
+            "url": "/explore/calendar_nrf/order_items_parameter?fields=order_items.count,order_items.status,order_items.shipped_year,order_items.shipped_week,order_items.created_week&pivots=order_items.shipped_year,order_items.shipped_week&f[arbitrary_period_analysis.first_period_filter]=7+days+ago+for+7+days&limit=500&column_limit=50&f[order_items.created_month]=2025-12",
+            "lv": "Created Week",
+            "value": "2025-12"
+          },
+          {
+            "type": "drill",
+            "field_name": "order_items.created_date",
+            "url": "/explore/calendar_nrf/order_items_parameter?fields=order_items.count,order_items.status,order_items.shipped_year,order_items.shipped_week,order_items.created_date&pivots=order_items.shipped_year,order_items.shipped_week&f[arbitrary_period_analysis.first_period_filter]=7+days+ago+for+7+days&limit=500&column_limit=50&f[order_items.created_month]=2025-12",
+            "lv": "Created Date",
+            "value": "2025-12"
+          },
+          {
+            "type": "drill",
+            "field_name": "order_items.created_time",
+            "url": "/explore/calendar_nrf/order_items_parameter?fields=order_items.count,order_items.status,order_items.shipped_year,order_items.shipped_week,order_items.created_time&pivots=order_items.shipped_year,order_items.shipped_week&f[arbitrary_period_analysis.first_period_filter]=7+days+ago+for+7+days&limit=500&column_limit=50&f[order_items.created_month]=2025-12",
+            "lv": "Created Time",
+            "value": "2025-12"
+          }
+        ]
+      },
+      "order_items.count": {
+        "2026|FIELD|2025-12-29": {
+          "value": 235,
+          "rendered": "235",
+          "links": [
+            {
+              "label": "Show All 235",
+              "label_prefix": "Show All",
+              "label_value": "235",
+              "url": "/explore/calendar_nrf/order_items_parameter?fields=order_items.id&f[order_items.status]=Shipped&f[order_items.shipped_year]=2026&f[order_items.shipped_week]=2025-12-29+for+7+days&f[order_items.created_month]=2025-12&f[arbitrary_period_analysis.first_period_filter]=7+days+ago+for+7+days&query_timezone=US%2FEastern&limit=500",
+              "type": "measure_default"
+            }
+          ],
+          "html": "\n  235\n   "
+        },
+        "2026|FIELD|2026-01-05": {
+          "value": 100,
+          "rendered": "100",
+          "links": [
+            {
+              "label": "Show All 100",
+              "label_prefix": "Show All",
+              "label_value": "100",
+              "url": "/explore/calendar_nrf/order_items_parameter?fields=order_items.id&f[order_items.status]=Shipped&f[order_items.shipped_year]=2026&f[order_items.shipped_week]=2026-01-05+for+7+days&f[order_items.created_month]=2025-12&f[arbitrary_period_analysis.first_period_filter]=7+days+ago+for+7+days&query_timezone=US%2FEastern&limit=500",
+              "type": "measure_default"
+            }
+          ],
+          "html": "\n  100\n   "
+        },
+        "order_items.shipped_year___null|FIELD|order_items.shipped_week___null": {
+          "value": null,
+          "filterable_value": "NULL",
+          "html": ""
+        }
+      }
+    },
+    {
+      "order_items.status": {
+        "value": "Cancelled"
+      },
+      "order_items.created_month": {
+        "value": "2025-12",
+        "links": [
+          {
+            "type": "drill",
+            "field_name": "order_items.created_week",
+            "url": "/explore/calendar_nrf/order_items_parameter?fields=order_items.count,order_items.status,order_items.shipped_year,order_items.shipped_week,order_items.created_week&pivots=order_items.shipped_year,order_items.shipped_week&f[arbitrary_period_analysis.first_period_filter]=7+days+ago+for+7+days&limit=500&column_limit=50&f[order_items.created_month]=2025-12",
+            "lv": "Created Week",
+            "value": "2025-12"
+          },
+          {
+            "type": "drill",
+            "field_name": "order_items.created_date",
+            "url": "/explore/calendar_nrf/order_items_parameter?fields=order_items.count,order_items.status,order_items.shipped_year,order_items.shipped_week,order_items.created_date&pivots=order_items.shipped_year,order_items.shipped_week&f[arbitrary_period_analysis.first_period_filter]=7+days+ago+for+7+days&limit=500&column_limit=50&f[order_items.created_month]=2025-12",
+            "lv": "Created Date",
+            "value": "2025-12"
+          },
+          {
+            "type": "drill",
+            "field_name": "order_items.created_time",
+            "url": "/explore/calendar_nrf/order_items_parameter?fields=order_items.count,order_items.status,order_items.shipped_year,order_items.shipped_week,order_items.created_time&pivots=order_items.shipped_year,order_items.shipped_week&f[arbitrary_period_analysis.first_period_filter]=7+days+ago+for+7+days&limit=500&column_limit=50&f[order_items.created_month]=2025-12",
+            "lv": "Created Time",
+            "value": "2025-12"
+          }
+        ]
+      },
+      "order_items.count": {
+        "2026|FIELD|2025-12-29": {
+          "value": null,
+          "filterable_value": "NULL",
+          "html": ""
+        },
+        "2026|FIELD|2026-01-05": {
+          "value": null,
+          "filterable_value": "NULL",
+          "html": ""
+        },
+        "order_items.shipped_year___null|FIELD|order_items.shipped_week___null": {
+          "value": 16,
+          "rendered": "16",
+          "links": [
+            {
+              "label": "Show All 16",
+              "label_prefix": "Show All",
+              "label_value": "16",
+              "url": "/explore/calendar_nrf/order_items_parameter?fields=order_items.id&f[order_items.status]=Cancelled&f[order_items.shipped_year]=NULL&f[order_items.shipped_week]=NULL&f[order_items.created_month]=2025-12&f[arbitrary_period_analysis.first_period_filter]=7+days+ago+for+7+days&query_timezone=US%2FEastern&limit=500",
+              "type": "measure_default"
+            }
+          ],
+          "html": "\n  16\n   "
+        }
+      }
+    },
+    {
+      "order_items.status": {
+        "value": "Processing"
+      },
+      "order_items.created_month": {
+        "value": "2025-12",
+        "links": [
+          {
+            "type": "drill",
+            "field_name": "order_items.created_week",
+            "url": "/explore/calendar_nrf/order_items_parameter?fields=order_items.count,order_items.status,order_items.shipped_year,order_items.shipped_week,order_items.created_week&pivots=order_items.shipped_year,order_items.shipped_week&f[arbitrary_period_analysis.first_period_filter]=7+days+ago+for+7+days&limit=500&column_limit=50&f[order_items.created_month]=2025-12",
+            "lv": "Created Week",
+            "value": "2025-12"
+          },
+          {
+            "type": "drill",
+            "field_name": "order_items.created_date",
+            "url": "/explore/calendar_nrf/order_items_parameter?fields=order_items.count,order_items.status,order_items.shipped_year,order_items.shipped_week,order_items.created_date&pivots=order_items.shipped_year,order_items.shipped_week&f[arbitrary_period_analysis.first_period_filter]=7+days+ago+for+7+days&limit=500&column_limit=50&f[order_items.created_month]=2025-12",
+            "lv": "Created Date",
+            "value": "2025-12"
+          },
+          {
+            "type": "drill",
+            "field_name": "order_items.created_time",
+            "url": "/explore/calendar_nrf/order_items_parameter?fields=order_items.count,order_items.status,order_items.shipped_year,order_items.shipped_week,order_items.created_time&pivots=order_items.shipped_year,order_items.shipped_week&f[arbitrary_period_analysis.first_period_filter]=7+days+ago+for+7+days&limit=500&column_limit=50&f[order_items.created_month]=2025-12",
+            "lv": "Created Time",
+            "value": "2025-12"
+          }
+        ]
+      },
+      "order_items.count": {
+        "2026|FIELD|2025-12-29": {
+          "value": null,
+          "filterable_value": "NULL",
+          "html": ""
+        },
+        "2026|FIELD|2026-01-05": {
+          "value": null,
+          "filterable_value": "NULL",
+          "html": ""
+        },
+        "order_items.shipped_year___null|FIELD|order_items.shipped_week___null": {
+          "value": 8,
+          "rendered": "8",
+          "links": [
+            {
+              "label": "Show All 8",
+              "label_prefix": "Show All",
+              "label_value": "8",
+              "url": "/explore/calendar_nrf/order_items_parameter?fields=order_items.id&f[order_items.status]=Processing&f[order_items.shipped_year]=NULL&f[order_items.shipped_week]=NULL&f[order_items.created_month]=2025-12&f[arbitrary_period_analysis.first_period_filter]=7+days+ago+for+7+days&query_timezone=US%2FEastern&limit=500",
+              "type": "measure_default"
+            }
+          ],
+          "html": "\n  8\n   "
+        }
+      }
+    }
+  ],
+  "drill_menu_build_time": 0.009838,
+  "drill_metadata": {
+    "field_map": {
+      "order_items.created_week": "Created Week",
+      "order_items.created_date": "Created Date",
+      "order_items.created_time": "Created Time"
+    },
+    "template": "/explore/calendar_nrf/order_items_parameter?fields=order_items.count,order_items.status,order_items.shipped_year,order_items.shipped_week,order_items.created_month,<DRILL_BY>&pivots=order_items.shipped_year,order_items.shipped_week&f[arbitrary_period_analysis.first_period_filter]=7+days+ago+for+7+days&limit=500&column_limit=50&f[<DRILL_INTO>]=<DRILL_VALUE>"
+  },
+  "expired": false,
+  "fields": {
+    "measures": [
+      {
+        "align": "right",
+        "can_filter": true,
+        "category": "measure",
+        "default_filter_value": null,
+        "description": "",
+        "enumerations": null,
+        "field_group_label": null,
+        "fill_style": null,
+        "fiscal_month_offset": 0,
+        "has_allowed_values": false,
+        "hidden": false,
+        "is_filter": false,
+        "is_numeric": true,
+        "label": "Order Items Count",
+        "label_from_parameter": null,
+        "label_short": "Count",
+        "map_layer": null,
+        "name": "order_items.count",
+        "strict_value_format": false,
+        "requires_refresh_on_sort": false,
+        "sortable": true,
+        "suggestions": null,
+        "synonyms": [],
+        "tags": [],
+        "type": "count",
+        "user_attribute_filter_types": [
+          "number",
+          "advanced_filter_number"
+        ],
+        "value_format": "#,##0",
+        "value_format_name": "decimal_0",
+        "view": "order_items",
+        "view_label": "Order Items",
+        "dynamic": false,
+        "week_start_day": "monday",
+        "original_view": "order_items",
+        "datatype": "TIMESTAMP",
+        "convert_tz": true,
+        "dimension_group": null,
+        "error": null,
+        "field_group_variant": "Count",
+        "measure": true,
+        "parameter": false,
+        "primary_key": false,
+        "project_name": "custom_calendars",
+        "scope": "order_items",
+        "suggest_dimension": "order_items.count",
+        "suggest_explore": "order_items_parameter",
+        "suggestable": false,
+        "lookml_expression": null,
+        "is_fiscal": false,
+        "is_timeframe": false,
+        "can_time_filter": false,
+        "time_interval": null,
+        "lookml_link": "/projects/custom_calendars/files/views%2Forder_items.view.lkml?line=100",
+        "period_over_period_params": null,
+        "permanent": null,
+        "source_file": "views/order_items.view.lkml",
+        "source_file_path": "custom_calendars/views/order_items.view.lkml",
+        "sql": null,
+        "sql_case": null,
+        "filters": null,
+        "times_used": 0
+      }
+    ],
+    "dimensions": [
+      {
+        "align": "left",
+        "can_filter": true,
+        "category": "dimension",
+        "default_filter_value": null,
+        "description": "",
+        "enumerations": null,
+        "field_group_label": null,
+        "fill_style": null,
+        "fiscal_month_offset": 0,
+        "has_allowed_values": false,
+        "hidden": false,
+        "is_filter": false,
+        "is_numeric": false,
+        "label": "Order Items Status",
+        "label_from_parameter": null,
+        "label_short": "Status",
+        "map_layer": null,
+        "name": "order_items.status",
+        "strict_value_format": false,
+        "requires_refresh_on_sort": false,
+        "sortable": true,
+        "suggestions": null,
+        "synonyms": [],
+        "tags": [],
+        "type": "string",
+        "user_attribute_filter_types": [
+          "string",
+          "advanced_filter_string"
+        ],
+        "value_format": null,
+        "value_format_name": null,
+        "view": "order_items",
+        "view_label": "Order Items",
+        "dynamic": false,
+        "week_start_day": "monday",
+        "original_view": "order_items",
+        "datatype": "TIMESTAMP",
+        "convert_tz": true,
+        "dimension_group": null,
+        "error": null,
+        "field_group_variant": "Status",
+        "measure": false,
+        "parameter": false,
+        "primary_key": false,
+        "project_name": "custom_calendars",
+        "scope": "order_items",
+        "suggest_dimension": "order_items.status",
+        "suggest_explore": "order_items_parameter",
+        "suggestable": true,
+        "lookml_expression": null,
+        "is_fiscal": false,
+        "is_timeframe": false,
+        "can_time_filter": false,
+        "time_interval": null,
+        "lookml_link": "/projects/custom_calendars/files/views%2Forder_items.view.lkml?line=95",
+        "period_over_period_params": null,
+        "permanent": null,
+        "source_file": "views/order_items.view.lkml",
+        "source_file_path": "custom_calendars/views/order_items.view.lkml",
+        "sql": "${TABLE}.status ",
+        "sql_case": null,
+        "filters": null,
+        "times_used": 0
+      },
+      {
+        "align": "left",
+        "can_filter": true,
+        "category": "dimension",
+        "default_filter_value": null,
+        "description": "",
+        "enumerations": null,
+        "field_group_label": "Created Date",
+        "fill_style": "range",
+        "fiscal_month_offset": 0,
+        "has_allowed_values": false,
+        "hidden": false,
+        "is_filter": false,
+        "is_numeric": false,
+        "label": "Order Items Created Month",
+        "label_from_parameter": null,
+        "label_short": "Created Month",
+        "map_layer": null,
+        "name": "order_items.created_month",
+        "strict_value_format": false,
+        "requires_refresh_on_sort": false,
+        "sortable": true,
+        "suggestions": null,
+        "synonyms": [],
+        "tags": [],
+        "type": "date_month",
+        "user_attribute_filter_types": [
+          "datetime",
+          "advanced_filter_datetime"
+        ],
+        "value_format": null,
+        "value_format_name": null,
+        "view": "order_items",
+        "view_label": "Order Items",
+        "dynamic": false,
+        "week_start_day": "monday",
+        "original_view": "order_items",
+        "datatype": "TIMESTAMP",
+        "convert_tz": true,
+        "dimension_group": "order_items.created",
+        "error": null,
+        "field_group_variant": "Month",
+        "measure": false,
+        "parameter": false,
+        "primary_key": false,
+        "project_name": "custom_calendars",
+        "scope": "order_items",
+        "suggest_dimension": "order_items.created_month",
+        "suggest_explore": "order_items_parameter",
+        "suggestable": false,
+        "lookml_expression": null,
+        "is_fiscal": false,
+        "is_timeframe": true,
+        "can_time_filter": false,
+        "time_interval": {
+          "name": "month",
+          "count": 1
+        },
+        "lookml_link": "/projects/custom_calendars/files/views%2Forder_items.view.lkml?line=32",
+        "period_over_period_params": null,
+        "permanent": null,
+        "source_file": "views/order_items.view.lkml",
+        "source_file_path": "custom_calendars/views/order_items.view.lkml",
+        "sql": "${TABLE}.created_at ",
+        "sql_case": null,
+        "filters": null,
+        "times_used": 0,
+        "sorted": {
+          "desc": true,
+          "sort_index": 2
+        }
+      }
+    ],
+    "table_calculations": [],
+    "pivots": [
+      {
+        "align": "left",
+        "can_filter": true,
+        "category": "dimension",
+        "default_filter_value": null,
+        "description": "",
+        "enumerations": null,
+        "field_group_label": "Shipped Date",
+        "fill_style": "range",
+        "fiscal_month_offset": 0,
+        "has_allowed_values": false,
+        "hidden": false,
+        "is_filter": false,
+        "is_numeric": false,
+        "label": "Order Items Shipped Year",
+        "label_from_parameter": null,
+        "label_short": "Shipped Year",
+        "map_layer": null,
+        "name": "order_items.shipped_year",
+        "strict_value_format": false,
+        "requires_refresh_on_sort": false,
+        "sortable": true,
+        "suggestions": null,
+        "synonyms": [],
+        "tags": [],
+        "type": "date_year",
+        "user_attribute_filter_types": [
+          "datetime",
+          "advanced_filter_datetime"
+        ],
+        "value_format": null,
+        "value_format_name": null,
+        "view": "order_items",
+        "view_label": "Order Items",
+        "dynamic": false,
+        "week_start_day": "monday",
+        "original_view": "order_items",
+        "datatype": "DATE",
+        "convert_tz": false,
+        "dimension_group": "order_items.shipped",
+        "error": null,
+        "field_group_variant": "Year",
+        "measure": false,
+        "parameter": false,
+        "primary_key": false,
+        "project_name": "custom_calendars",
+        "scope": "order_items",
+        "suggest_dimension": "order_items.shipped_year",
+        "suggest_explore": "order_items_parameter",
+        "suggestable": false,
+        "lookml_expression": null,
+        "is_fiscal": false,
+        "is_timeframe": true,
+        "can_time_filter": false,
+        "time_interval": {
+          "name": "year",
+          "count": 1
+        },
+        "lookml_link": "/projects/custom_calendars/files/views%2Forder_items.view.lkml?line=80",
+        "period_over_period_params": null,
+        "permanent": null,
+        "source_file": "views/order_items.view.lkml",
+        "source_file_path": "custom_calendars/views/order_items.view.lkml",
+        "sql": "${TABLE}.shipped_at ",
+        "sql_case": null,
+        "filters": null,
+        "times_used": 0,
+        "sorted": {
+          "desc": false,
+          "sort_index": 0
+        }
+      },
+      {
+        "align": "left",
+        "can_filter": true,
+        "category": "dimension",
+        "default_filter_value": null,
+        "description": "",
+        "enumerations": null,
+        "field_group_label": "Shipped Date",
+        "fill_style": "range",
+        "fiscal_month_offset": 0,
+        "has_allowed_values": false,
+        "hidden": false,
+        "is_filter": false,
+        "is_numeric": false,
+        "label": "Order Items Shipped Week",
+        "label_from_parameter": null,
+        "label_short": "Shipped Week",
+        "map_layer": null,
+        "name": "order_items.shipped_week",
+        "strict_value_format": false,
+        "requires_refresh_on_sort": false,
+        "sortable": true,
+        "suggestions": null,
+        "synonyms": [],
+        "tags": [],
+        "type": "date_week",
+        "user_attribute_filter_types": [
+          "datetime",
+          "advanced_filter_datetime"
+        ],
+        "value_format": null,
+        "value_format_name": null,
+        "view": "order_items",
+        "view_label": "Order Items",
+        "dynamic": false,
+        "week_start_day": "monday",
+        "original_view": "order_items",
+        "datatype": "DATE",
+        "convert_tz": false,
+        "dimension_group": "order_items.shipped",
+        "error": null,
+        "field_group_variant": "Week",
+        "measure": false,
+        "parameter": false,
+        "primary_key": false,
+        "project_name": "custom_calendars",
+        "scope": "order_items",
+        "suggest_dimension": "order_items.shipped_week",
+        "suggest_explore": "order_items_parameter",
+        "suggestable": false,
+        "lookml_expression": null,
+        "is_fiscal": false,
+        "is_timeframe": true,
+        "can_time_filter": false,
+        "time_interval": {
+          "name": "week",
+          "count": 1
+        },
+        "lookml_link": "/projects/custom_calendars/files/views%2Forder_items.view.lkml?line=80",
+        "period_over_period_params": null,
+        "permanent": null,
+        "source_file": "views/order_items.view.lkml",
+        "source_file_path": "custom_calendars/views/order_items.view.lkml",
+        "sql": "${TABLE}.shipped_at ",
+        "sql_case": null,
+        "filters": null,
+        "times_used": 0,
+        "sorted": {
+          "desc": false,
+          "sort_index": 1
+        }
+      }
+    ],
+    "measure_like": [
+      {
+        "align": "right",
+        "can_filter": true,
+        "category": "measure",
+        "default_filter_value": null,
+        "description": "",
+        "enumerations": null,
+        "field_group_label": null,
+        "fill_style": null,
+        "fiscal_month_offset": 0,
+        "has_allowed_values": false,
+        "hidden": false,
+        "is_filter": false,
+        "is_numeric": true,
+        "label": "Order Items Count",
+        "label_from_parameter": null,
+        "label_short": "Count",
+        "map_layer": null,
+        "name": "order_items.count",
+        "strict_value_format": false,
+        "requires_refresh_on_sort": false,
+        "sortable": true,
+        "suggestions": null,
+        "synonyms": [],
+        "tags": [],
+        "type": "count",
+        "user_attribute_filter_types": [
+          "number",
+          "advanced_filter_number"
+        ],
+        "value_format": "#,##0",
+        "value_format_name": "decimal_0",
+        "view": "order_items",
+        "view_label": "Order Items",
+        "dynamic": false,
+        "week_start_day": "monday",
+        "original_view": "order_items",
+        "datatype": "TIMESTAMP",
+        "convert_tz": true,
+        "dimension_group": null,
+        "error": null,
+        "field_group_variant": "Count",
+        "measure": true,
+        "parameter": false,
+        "primary_key": false,
+        "project_name": "custom_calendars",
+        "scope": "order_items",
+        "suggest_dimension": "order_items.count",
+        "suggest_explore": "order_items_parameter",
+        "suggestable": false,
+        "lookml_expression": null,
+        "is_fiscal": false,
+        "is_timeframe": false,
+        "can_time_filter": false,
+        "time_interval": null,
+        "lookml_link": "/projects/custom_calendars/files/views%2Forder_items.view.lkml?line=100",
+        "period_over_period_params": null,
+        "permanent": null,
+        "source_file": "views/order_items.view.lkml",
+        "source_file_path": "custom_calendars/views/order_items.view.lkml",
+        "sql": null,
+        "sql_case": null,
+        "filters": null,
+        "times_used": 0
+      }
+    ],
+    "supermeasure_like": [],
+    "dimension_like": [
+      {
+        "align": "left",
+        "can_filter": true,
+        "category": "dimension",
+        "default_filter_value": null,
+        "description": "",
+        "enumerations": null,
+        "field_group_label": null,
+        "fill_style": null,
+        "fiscal_month_offset": 0,
+        "has_allowed_values": false,
+        "hidden": false,
+        "is_filter": false,
+        "is_numeric": false,
+        "label": "Order Items Status",
+        "label_from_parameter": null,
+        "label_short": "Status",
+        "map_layer": null,
+        "name": "order_items.status",
+        "strict_value_format": false,
+        "requires_refresh_on_sort": false,
+        "sortable": true,
+        "suggestions": null,
+        "synonyms": [],
+        "tags": [],
+        "type": "string",
+        "user_attribute_filter_types": [
+          "string",
+          "advanced_filter_string"
+        ],
+        "value_format": null,
+        "value_format_name": null,
+        "view": "order_items",
+        "view_label": "Order Items",
+        "dynamic": false,
+        "week_start_day": "monday",
+        "original_view": "order_items",
+        "datatype": "TIMESTAMP",
+        "convert_tz": true,
+        "dimension_group": null,
+        "error": null,
+        "field_group_variant": "Status",
+        "measure": false,
+        "parameter": false,
+        "primary_key": false,
+        "project_name": "custom_calendars",
+        "scope": "order_items",
+        "suggest_dimension": "order_items.status",
+        "suggest_explore": "order_items_parameter",
+        "suggestable": true,
+        "lookml_expression": null,
+        "is_fiscal": false,
+        "is_timeframe": false,
+        "can_time_filter": false,
+        "time_interval": null,
+        "lookml_link": "/projects/custom_calendars/files/views%2Forder_items.view.lkml?line=95",
+        "period_over_period_params": null,
+        "permanent": null,
+        "source_file": "views/order_items.view.lkml",
+        "source_file_path": "custom_calendars/views/order_items.view.lkml",
+        "sql": "${TABLE}.status ",
+        "sql_case": null,
+        "filters": null,
+        "times_used": 0
+      },
+      {
+        "align": "left",
+        "can_filter": true,
+        "category": "dimension",
+        "default_filter_value": null,
+        "description": "",
+        "enumerations": null,
+        "field_group_label": "Created Date",
+        "fill_style": "range",
+        "fiscal_month_offset": 0,
+        "has_allowed_values": false,
+        "hidden": false,
+        "is_filter": false,
+        "is_numeric": false,
+        "label": "Order Items Created Month",
+        "label_from_parameter": null,
+        "label_short": "Created Month",
+        "map_layer": null,
+        "name": "order_items.created_month",
+        "strict_value_format": false,
+        "requires_refresh_on_sort": false,
+        "sortable": true,
+        "suggestions": null,
+        "synonyms": [],
+        "tags": [],
+        "type": "date_month",
+        "user_attribute_filter_types": [
+          "datetime",
+          "advanced_filter_datetime"
+        ],
+        "value_format": null,
+        "value_format_name": null,
+        "view": "order_items",
+        "view_label": "Order Items",
+        "dynamic": false,
+        "week_start_day": "monday",
+        "original_view": "order_items",
+        "datatype": "TIMESTAMP",
+        "convert_tz": true,
+        "dimension_group": "order_items.created",
+        "error": null,
+        "field_group_variant": "Month",
+        "measure": false,
+        "parameter": false,
+        "primary_key": false,
+        "project_name": "custom_calendars",
+        "scope": "order_items",
+        "suggest_dimension": "order_items.created_month",
+        "suggest_explore": "order_items_parameter",
+        "suggestable": false,
+        "lookml_expression": null,
+        "is_fiscal": false,
+        "is_timeframe": true,
+        "can_time_filter": false,
+        "time_interval": {
+          "name": "month",
+          "count": 1
+        },
+        "lookml_link": "/projects/custom_calendars/files/views%2Forder_items.view.lkml?line=32",
+        "period_over_period_params": null,
+        "permanent": null,
+        "source_file": "views/order_items.view.lkml",
+        "source_file_path": "custom_calendars/views/order_items.view.lkml",
+        "sql": "${TABLE}.created_at ",
+        "sql_case": null,
+        "filters": null,
+        "times_used": 0,
+        "sorted": {
+          "desc": true,
+          "sort_index": 2
+        }
+      }
+    ]
+  },
+  "fill_fields": [],
+  "forecast_result": null,
+  "has_row_totals": false,
+  "has_totals": false,
+  "id": "query-result-11:{}",
+  "null_sort_treatment": "low",
+  "number_format": "1,234.56",
+  "pivots": [
+    {
+      "key": "2026|FIELD|2025-12-29",
+      "data": {
+        "order_items.shipped_year": 2026,
+        "order_items.shipped_week": "2025-12-29"
+      },
+      "sort_values": {
+        "order_items.shipped_year": 2026,
+        "order_items.shipped_week": "2025-12-29"
+      },
+      "labels": {
+        "order_items.shipped_year": "<a href='#drillmenu' class='cell-clickable-content' target='_self'>2026</a>",
+        "order_items.shipped_week": "<a href='#drillmenu' class='cell-clickable-content' target='_self'>2025-12-29</a>"
+      },
+      "is_total": false,
+      "metadata": {
+        "order_items.shipped_year": {
+          "value": 2026,
+          "links": [
+            {
+              "label": "by Shipped Quarter",
+              "label_prefix": "by",
+              "label_value": "Shipped Quarter",
+              "url": "/explore/calendar_nrf/order_items_parameter?fields=order_items.count,order_items.status,order_items.shipped_quarter,order_items.shipped_week,order_items.created_month&pivots=order_items.shipped_year,order_items.shipped_week&f[arbitrary_period_analysis.first_period_filter]=7+days+ago+for+7+days&f[order_items.shipped_year]=2026&limit=500&column_limit=50",
+              "type": "drill",
+              "type_label": "Drill into 2026",
+              "type_label_prefix": "Drill into",
+              "type_label_value": "2026"
+            },
+            {
+              "label": "by Shipped Month",
+              "label_prefix": "by",
+              "label_value": "Shipped Month",
+              "url": "/explore/calendar_nrf/order_items_parameter?fields=order_items.count,order_items.status,order_items.shipped_month,order_items.shipped_week,order_items.created_month&pivots=order_items.shipped_year,order_items.shipped_week&f[arbitrary_period_analysis.first_period_filter]=7+days+ago+for+7+days&f[order_items.shipped_year]=2026&limit=500&column_limit=50",
+              "type": "drill",
+              "type_label": "Drill into 2026",
+              "type_label_prefix": "Drill into",
+              "type_label_value": "2026"
+            },
+            {
+              "label": "by Shipped Week",
+              "label_prefix": "by",
+              "label_value": "Shipped Week",
+              "url": "/explore/calendar_nrf/order_items_parameter?fields=order_items.count,order_items.status,order_items.shipped_week,order_items.shipped_week,order_items.created_month&pivots=order_items.shipped_year,order_items.shipped_week&f[arbitrary_period_analysis.first_period_filter]=7+days+ago+for+7+days&f[order_items.shipped_year]=2026&limit=500&column_limit=50",
+              "type": "drill",
+              "type_label": "Drill into 2026",
+              "type_label_prefix": "Drill into",
+              "type_label_value": "2026"
+            },
+            {
+              "label": "by Shipped Date",
+              "label_prefix": "by",
+              "label_value": "Shipped Date",
+              "url": "/explore/calendar_nrf/order_items_parameter?fields=order_items.count,order_items.status,order_items.shipped_date,order_items.shipped_week,order_items.created_month&pivots=order_items.shipped_year,order_items.shipped_week&f[arbitrary_period_analysis.first_period_filter]=7+days+ago+for+7+days&f[order_items.shipped_year]=2026&limit=500&column_limit=50",
+              "type": "drill",
+              "type_label": "Drill into 2026",
+              "type_label_prefix": "Drill into",
+              "type_label_value": "2026"
+            }
+          ]
+        },
+        "order_items.shipped_week": {
+          "value": "2025-12-29",
+          "filterable_value": "2025-12-29 for 7 days",
+          "links": [
+            {
+              "label": "by Shipped Date",
+              "label_prefix": "by",
+              "label_value": "Shipped Date",
+              "url": "/explore/calendar_nrf/order_items_parameter?fields=order_items.count,order_items.status,order_items.shipped_year,order_items.shipped_date,order_items.created_month&pivots=order_items.shipped_year,order_items.shipped_week&f[arbitrary_period_analysis.first_period_filter]=7+days+ago+for+7+days&f[order_items.shipped_week]=2025-12-29+for+7+days&limit=500&column_limit=50",
+              "type": "drill",
+              "type_label": "Drill into 2025-12-29",
+              "type_label_prefix": "Drill into",
+              "type_label_value": "2025-12-29"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "key": "2026|FIELD|2026-01-05",
+      "data": {
+        "order_items.shipped_year": 2026,
+        "order_items.shipped_week": "2026-01-05"
+      },
+      "sort_values": {
+        "order_items.shipped_year": 2026,
+        "order_items.shipped_week": "2026-01-05"
+      },
+      "labels": {
+        "order_items.shipped_year": "<a href='#drillmenu' class='cell-clickable-content' target='_self'>2026</a>",
+        "order_items.shipped_week": "<a href='#drillmenu' class='cell-clickable-content' target='_self'>2026-01-05</a>"
+      },
+      "is_total": false,
+      "metadata": {
+        "order_items.shipped_year": {
+          "value": 2026,
+          "links": [
+            {
+              "label": "by Shipped Quarter",
+              "label_prefix": "by",
+              "label_value": "Shipped Quarter",
+              "url": "/explore/calendar_nrf/order_items_parameter?fields=order_items.count,order_items.status,order_items.shipped_quarter,order_items.shipped_week,order_items.created_month&pivots=order_items.shipped_year,order_items.shipped_week&f[arbitrary_period_analysis.first_period_filter]=7+days+ago+for+7+days&f[order_items.shipped_year]=2026&limit=500&column_limit=50",
+              "type": "drill",
+              "type_label": "Drill into 2026",
+              "type_label_prefix": "Drill into",
+              "type_label_value": "2026"
+            },
+            {
+              "label": "by Shipped Month",
+              "label_prefix": "by",
+              "label_value": "Shipped Month",
+              "url": "/explore/calendar_nrf/order_items_parameter?fields=order_items.count,order_items.status,order_items.shipped_month,order_items.shipped_week,order_items.created_month&pivots=order_items.shipped_year,order_items.shipped_week&f[arbitrary_period_analysis.first_period_filter]=7+days+ago+for+7+days&f[order_items.shipped_year]=2026&limit=500&column_limit=50",
+              "type": "drill",
+              "type_label": "Drill into 2026",
+              "type_label_prefix": "Drill into",
+              "type_label_value": "2026"
+            },
+            {
+              "label": "by Shipped Week",
+              "label_prefix": "by",
+              "label_value": "Shipped Week",
+              "url": "/explore/calendar_nrf/order_items_parameter?fields=order_items.count,order_items.status,order_items.shipped_week,order_items.shipped_week,order_items.created_month&pivots=order_items.shipped_year,order_items.shipped_week&f[arbitrary_period_analysis.first_period_filter]=7+days+ago+for+7+days&f[order_items.shipped_year]=2026&limit=500&column_limit=50",
+              "type": "drill",
+              "type_label": "Drill into 2026",
+              "type_label_prefix": "Drill into",
+              "type_label_value": "2026"
+            },
+            {
+              "label": "by Shipped Date",
+              "label_prefix": "by",
+              "label_value": "Shipped Date",
+              "url": "/explore/calendar_nrf/order_items_parameter?fields=order_items.count,order_items.status,order_items.shipped_date,order_items.shipped_week,order_items.created_month&pivots=order_items.shipped_year,order_items.shipped_week&f[arbitrary_period_analysis.first_period_filter]=7+days+ago+for+7+days&f[order_items.shipped_year]=2026&limit=500&column_limit=50",
+              "type": "drill",
+              "type_label": "Drill into 2026",
+              "type_label_prefix": "Drill into",
+              "type_label_value": "2026"
+            }
+          ]
+        },
+        "order_items.shipped_week": {
+          "value": "2026-01-05",
+          "filterable_value": "2026-01-05 for 7 days",
+          "links": [
+            {
+              "label": "by Shipped Date",
+              "label_prefix": "by",
+              "label_value": "Shipped Date",
+              "url": "/explore/calendar_nrf/order_items_parameter?fields=order_items.count,order_items.status,order_items.shipped_year,order_items.shipped_date,order_items.created_month&pivots=order_items.shipped_year,order_items.shipped_week&f[arbitrary_period_analysis.first_period_filter]=7+days+ago+for+7+days&f[order_items.shipped_week]=2026-01-05+for+7+days&limit=500&column_limit=50",
+              "type": "drill",
+              "type_label": "Drill into 2026-01-05",
+              "type_label_prefix": "Drill into",
+              "type_label_value": "2026-01-05"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "key": "order_items.shipped_year___null|FIELD|order_items.shipped_week___null",
+      "data": {
+        "order_items.shipped_year": null,
+        "order_items.shipped_week": null
+      },
+      "sort_values": {
+        "order_items.shipped_year": null,
+        "order_items.shipped_week": null
+      },
+      "labels": {
+        "order_items.shipped_year": "",
+        "order_items.shipped_week": ""
+      },
+      "is_total": false,
+      "metadata": {
+        "order_items.shipped_year": {
+          "value": null,
+          "filterable_value": "NULL"
+        },
+        "order_items.shipped_week": {
+          "value": null,
+          "filterable_value": "NULL"
+        }
+      }
+    }
+  ],
+  "ran_at": "2026-01-07T02:36:10Z",
+  "runtime": "1.148",
+  "server_id": "kjh3PYbjzmmdG3Jx4RSTT65TcYcX2wq2",
+  "sql": "SELECT * FROM (\nSELECT *, DENSE_RANK() OVER (ORDER BY z___min_rank) as z___pivot_row_rank, RANK() OVER (PARTITION BY z__pivot_col_rank ORDER BY z___min_rank) as z__pivot_col_ordering, CASE WHEN z___min_rank = z___rank THEN 1 ELSE 0 END AS z__is_highest_ranked_cell FROM (\nSELECT *, MIN(z___rank) OVER (PARTITION BY CAST(order_items_status AS STRING),CAST(order_items_created_month AS STRING)) as z___min_rank FROM (\nSELECT *, RANK() OVER (ORDER BY order_items_created_month DESC, z__pivot_col_rank, order_items_status) AS z___rank FROM (\nSELECT *, DENSE_RANK() OVER (ORDER BY CASE WHEN order_items_shipped_year IS NULL THEN 1 ELSE 0 END, order_items_shipped_year, CASE WHEN order_items_shipped_week IS NULL THEN 1 ELSE 0 END, order_items_shipped_week) AS z__pivot_col_rank FROM (\nSELECT\n    (EXTRACT(YEAR FROM order_items.shipped_at )) AS order_items_shipped_year,\n        (FORMAT_DATE('%F', DATE_TRUNC(order_items.shipped_at , WEEK(MONDAY)))) AS order_items_shipped_week,\n    order_items.status  AS order_items_status,\n        (FORMAT_TIMESTAMP('%Y-%m', order_items.created_at , 'US/Eastern')) AS order_items_created_month,\n    COUNT(*) AS order_items_count\nFROM `looker-private-demo.thelook.order_items`  AS order_items\nWHERE (( ((( (DATE(order_items.created_at , 'US/Eastern'))  ) >= ((DATE_ADD(CURRENT_DATE('US/Eastern'), INTERVAL -7 DAY))) AND ( (DATE(order_items.created_at , 'US/Eastern'))  ) < ((DATE_ADD(DATE_ADD(CURRENT_DATE('US/Eastern'), INTERVAL -7 DAY), INTERVAL 7 DAY))))) )\n\n  )\nGROUP BY\n    1,\n    2,\n    3,\n    4) ww\n) bb WHERE z__pivot_col_rank <= 16384\n) aa\n) xx\n) zz\n WHERE (z__pivot_col_rank <= 50 OR z__is_highest_ranked_cell = 1) AND (z___pivot_row_rank <= 500 OR z__pivot_col_ordering = 1) ORDER BY z___pivot_row_rank",
+  "sql_explain": null,
+  "supports_pivot_in_db": true,
+  "timezone": "US/Eastern",
+  "is_local": true,
+  "table_calcs_complete": true,
+  "tracked_attributes": {
+    "result.drill_menu_build_time": 0.009838,
+    "result.from_cache": false,
+    "result.runtime": "1.148",
+    "result.sql.length": 1742,
+    "result.supports_pivot_in_db": true
+  },
+  "pivotTableColumns": [
+    [
+      {
+        "key": "2026|FIELD|2025-12-29",
+        "data": {
+          "order_items.shipped_year": 2026,
+          "order_items.shipped_week": "2025-12-29"
+        },
+        "sort_values": {
+          "order_items.shipped_year": 2026,
+          "order_items.shipped_week": "2025-12-29"
+        },
+        "labels": {
+          "order_items.shipped_year": "<a href='#drillmenu' class='cell-clickable-content' target='_self'>2026</a>",
+          "order_items.shipped_week": "<a href='#drillmenu' class='cell-clickable-content' target='_self'>2025-12-29</a>"
+        },
+        "is_total": false,
+        "metadata": {
+          "order_items.shipped_year": {
+            "value": 2026,
+            "links": [
+              {
+                "label": "by Shipped Quarter",
+                "label_prefix": "by",
+                "label_value": "Shipped Quarter",
+                "url": "/explore/calendar_nrf/order_items_parameter?fields=order_items.count,order_items.status,order_items.shipped_quarter,order_items.shipped_week,order_items.created_month&pivots=order_items.shipped_year,order_items.shipped_week&f[arbitrary_period_analysis.first_period_filter]=7+days+ago+for+7+days&f[order_items.shipped_year]=2026&limit=500&column_limit=50",
+                "type": "drill",
+                "type_label": "Drill into 2026",
+                "type_label_prefix": "Drill into",
+                "type_label_value": "2026"
+              },
+              {
+                "label": "by Shipped Month",
+                "label_prefix": "by",
+                "label_value": "Shipped Month",
+                "url": "/explore/calendar_nrf/order_items_parameter?fields=order_items.count,order_items.status,order_items.shipped_month,order_items.shipped_week,order_items.created_month&pivots=order_items.shipped_year,order_items.shipped_week&f[arbitrary_period_analysis.first_period_filter]=7+days+ago+for+7+days&f[order_items.shipped_year]=2026&limit=500&column_limit=50",
+                "type": "drill",
+                "type_label": "Drill into 2026",
+                "type_label_prefix": "Drill into",
+                "type_label_value": "2026"
+              },
+              {
+                "label": "by Shipped Week",
+                "label_prefix": "by",
+                "label_value": "Shipped Week",
+                "url": "/explore/calendar_nrf/order_items_parameter?fields=order_items.count,order_items.status,order_items.shipped_week,order_items.shipped_week,order_items.created_month&pivots=order_items.shipped_year,order_items.shipped_week&f[arbitrary_period_analysis.first_period_filter]=7+days+ago+for+7+days&f[order_items.shipped_year]=2026&limit=500&column_limit=50",
+                "type": "drill",
+                "type_label": "Drill into 2026",
+                "type_label_prefix": "Drill into",
+                "type_label_value": "2026"
+              },
+              {
+                "label": "by Shipped Date",
+                "label_prefix": "by",
+                "label_value": "Shipped Date",
+                "url": "/explore/calendar_nrf/order_items_parameter?fields=order_items.count,order_items.status,order_items.shipped_date,order_items.shipped_week,order_items.created_month&pivots=order_items.shipped_year,order_items.shipped_week&f[arbitrary_period_analysis.first_period_filter]=7+days+ago+for+7+days&f[order_items.shipped_year]=2026&limit=500&column_limit=50",
+                "type": "drill",
+                "type_label": "Drill into 2026",
+                "type_label_prefix": "Drill into",
+                "type_label_value": "2026"
+              }
+            ]
+          },
+          "order_items.shipped_week": {
+            "value": "2025-12-29",
+            "filterable_value": "2025-12-29 for 7 days",
+            "links": [
+              {
+                "label": "by Shipped Date",
+                "label_prefix": "by",
+                "label_value": "Shipped Date",
+                "url": "/explore/calendar_nrf/order_items_parameter?fields=order_items.count,order_items.status,order_items.shipped_year,order_items.shipped_date,order_items.created_month&pivots=order_items.shipped_year,order_items.shipped_week&f[arbitrary_period_analysis.first_period_filter]=7+days+ago+for+7+days&f[order_items.shipped_week]=2025-12-29+for+7+days&limit=500&column_limit=50",
+                "type": "drill",
+                "type_label": "Drill into 2025-12-29",
+                "type_label_prefix": "Drill into",
+                "type_label_value": "2025-12-29"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "align": "right",
+        "can_filter": true,
+        "category": "measure",
+        "default_filter_value": null,
+        "description": "",
+        "enumerations": null,
+        "field_group_label": null,
+        "fill_style": null,
+        "fiscal_month_offset": 0,
+        "has_allowed_values": false,
+        "hidden": false,
+        "is_filter": false,
+        "is_numeric": true,
+        "label": "Order Items Count",
+        "label_from_parameter": null,
+        "label_short": "Count",
+        "map_layer": null,
+        "name": "order_items.count",
+        "strict_value_format": false,
+        "requires_refresh_on_sort": false,
+        "sortable": true,
+        "suggestions": null,
+        "synonyms": [],
+        "tags": [],
+        "type": "count",
+        "user_attribute_filter_types": [
+          "number",
+          "advanced_filter_number"
+        ],
+        "value_format": "#,##0",
+        "value_format_name": "decimal_0",
+        "view": "order_items",
+        "view_label": "Order Items",
+        "dynamic": false,
+        "week_start_day": "monday",
+        "original_view": "order_items",
+        "dimension_group": null,
+        "error": null,
+        "field_group_variant": "Count",
+        "measure": true,
+        "parameter": false,
+        "primary_key": false,
+        "project_name": "custom_calendars",
+        "scope": "order_items",
+        "suggest_dimension": "order_items.count",
+        "suggest_explore": "order_items_parameter",
+        "suggestable": false,
+        "lookml_expression": null,
+        "is_fiscal": false,
+        "is_timeframe": false,
+        "can_time_filter": false,
+        "time_interval": null,
+        "lookml_link": "/projects/custom_calendars/files/views%2Forder_items.view.lkml?line=100",
+        "period_over_period_params": null,
+        "permanent": null,
+        "source_file": "views/order_items.view.lkml",
+        "source_file_path": "custom_calendars/views/order_items.view.lkml",
+        "sql": null,
+        "sql_case": null,
+        "filters": null,
+        "times_used": 0
+      }
+    ],
+    [
+      {
+        "key": "2026|FIELD|2026-01-05",
+        "data": {
+          "order_items.shipped_year": 2026,
+          "order_items.shipped_week": "2026-01-05"
+        },
+        "sort_values": {
+          "order_items.shipped_year": 2026,
+          "order_items.shipped_week": "2026-01-05"
+        },
+        "labels": {
+          "order_items.shipped_year": "<a href='#drillmenu' class='cell-clickable-content' target='_self'>2026</a>",
+          "order_items.shipped_week": "<a href='#drillmenu' class='cell-clickable-content' target='_self'>2026-01-05</a>"
+        },
+        "is_total": false,
+        "metadata": {
+          "order_items.shipped_year": {
+            "value": 2026,
+            "links": [
+              {
+                "label": "by Shipped Quarter",
+                "label_prefix": "by",
+                "label_value": "Shipped Quarter",
+                "url": "/explore/calendar_nrf/order_items_parameter?fields=order_items.count,order_items.status,order_items.shipped_quarter,order_items.shipped_week,order_items.created_month&pivots=order_items.shipped_year,order_items.shipped_week&f[arbitrary_period_analysis.first_period_filter]=7+days+ago+for+7+days&f[order_items.shipped_year]=2026&limit=500&column_limit=50",
+                "type": "drill",
+                "type_label": "Drill into 2026",
+                "type_label_prefix": "Drill into",
+                "type_label_value": "2026"
+              },
+              {
+                "label": "by Shipped Month",
+                "label_prefix": "by",
+                "label_value": "Shipped Month",
+                "url": "/explore/calendar_nrf/order_items_parameter?fields=order_items.count,order_items.status,order_items.shipped_month,order_items.shipped_week,order_items.created_month&pivots=order_items.shipped_year,order_items.shipped_week&f[arbitrary_period_analysis.first_period_filter]=7+days+ago+for+7+days&f[order_items.shipped_year]=2026&limit=500&column_limit=50",
+                "type": "drill",
+                "type_label": "Drill into 2026",
+                "type_label_prefix": "Drill into",
+                "type_label_value": "2026"
+              },
+              {
+                "label": "by Shipped Week",
+                "label_prefix": "by",
+                "label_value": "Shipped Week",
+                "url": "/explore/calendar_nrf/order_items_parameter?fields=order_items.count,order_items.status,order_items.shipped_week,order_items.shipped_week,order_items.created_month&pivots=order_items.shipped_year,order_items.shipped_week&f[arbitrary_period_analysis.first_period_filter]=7+days+ago+for+7+days&f[order_items.shipped_year]=2026&limit=500&column_limit=50",
+                "type": "drill",
+                "type_label": "Drill into 2026",
+                "type_label_prefix": "Drill into",
+                "type_label_value": "2026"
+              },
+              {
+                "label": "by Shipped Date",
+                "label_prefix": "by",
+                "label_value": "Shipped Date",
+                "url": "/explore/calendar_nrf/order_items_parameter?fields=order_items.count,order_items.status,order_items.shipped_date,order_items.shipped_week,order_items.created_month&pivots=order_items.shipped_year,order_items.shipped_week&f[arbitrary_period_analysis.first_period_filter]=7+days+ago+for+7+days&f[order_items.shipped_year]=2026&limit=500&column_limit=50",
+                "type": "drill",
+                "type_label": "Drill into 2026",
+                "type_label_prefix": "Drill into",
+                "type_label_value": "2026"
+              }
+            ]
+          },
+          "order_items.shipped_week": {
+            "value": "2026-01-05",
+            "filterable_value": "2026-01-05 for 7 days",
+            "links": [
+              {
+                "label": "by Shipped Date",
+                "label_prefix": "by",
+                "label_value": "Shipped Date",
+                "url": "/explore/calendar_nrf/order_items_parameter?fields=order_items.count,order_items.status,order_items.shipped_year,order_items.shipped_date,order_items.created_month&pivots=order_items.shipped_year,order_items.shipped_week&f[arbitrary_period_analysis.first_period_filter]=7+days+ago+for+7+days&f[order_items.shipped_week]=2026-01-05+for+7+days&limit=500&column_limit=50",
+                "type": "drill",
+                "type_label": "Drill into 2026-01-05",
+                "type_label_prefix": "Drill into",
+                "type_label_value": "2026-01-05"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "align": "right",
+        "can_filter": true,
+        "category": "measure",
+        "default_filter_value": null,
+        "description": "",
+        "enumerations": null,
+        "field_group_label": null,
+        "fill_style": null,
+        "fiscal_month_offset": 0,
+        "has_allowed_values": false,
+        "hidden": false,
+        "is_filter": false,
+        "is_numeric": true,
+        "label": "Order Items Count",
+        "label_from_parameter": null,
+        "label_short": "Count",
+        "map_layer": null,
+        "name": "order_items.count",
+        "strict_value_format": false,
+        "requires_refresh_on_sort": false,
+        "sortable": true,
+        "suggestions": null,
+        "synonyms": [],
+        "tags": [],
+        "type": "count",
+        "user_attribute_filter_types": [
+          "number",
+          "advanced_filter_number"
+        ],
+        "value_format": "#,##0",
+        "value_format_name": "decimal_0",
+        "view": "order_items",
+        "view_label": "Order Items",
+        "dynamic": false,
+        "week_start_day": "monday",
+        "original_view": "order_items",
+        "dimension_group": null,
+        "error": null,
+        "field_group_variant": "Count",
+        "measure": true,
+        "parameter": false,
+        "primary_key": false,
+        "project_name": "custom_calendars",
+        "scope": "order_items",
+        "suggest_dimension": "order_items.count",
+        "suggest_explore": "order_items_parameter",
+        "suggestable": false,
+        "lookml_expression": null,
+        "is_fiscal": false,
+        "is_timeframe": false,
+        "can_time_filter": false,
+        "time_interval": null,
+        "lookml_link": "/projects/custom_calendars/files/views%2Forder_items.view.lkml?line=100",
+        "period_over_period_params": null,
+        "permanent": null,
+        "source_file": "views/order_items.view.lkml",
+        "source_file_path": "custom_calendars/views/order_items.view.lkml",
+        "sql": null,
+        "sql_case": null,
+        "filters": null,
+        "times_used": 0
+      }
+    ],
+    [
+      {
+        "key": "order_items.shipped_year___null|FIELD|order_items.shipped_week___null",
+        "data": {
+          "order_items.shipped_year": null,
+          "order_items.shipped_week": null
+        },
+        "sort_values": {
+          "order_items.shipped_year": null,
+          "order_items.shipped_week": null
+        },
+        "labels": {
+          "order_items.shipped_year": "",
+          "order_items.shipped_week": ""
+        },
+        "is_total": false,
+        "metadata": {
+          "order_items.shipped_year": {
+            "value": null,
+            "filterable_value": "NULL"
+          },
+          "order_items.shipped_week": {
+            "value": null,
+            "filterable_value": "NULL"
+          }
+        }
+      },
+      {
+        "align": "right",
+        "can_filter": true,
+        "category": "measure",
+        "default_filter_value": null,
+        "description": "",
+        "enumerations": null,
+        "field_group_label": null,
+        "fill_style": null,
+        "fiscal_month_offset": 0,
+        "has_allowed_values": false,
+        "hidden": false,
+        "is_filter": false,
+        "is_numeric": true,
+        "label": "Order Items Count",
+        "label_from_parameter": null,
+        "label_short": "Count",
+        "map_layer": null,
+        "name": "order_items.count",
+        "strict_value_format": false,
+        "requires_refresh_on_sort": false,
+        "sortable": true,
+        "suggestions": null,
+        "synonyms": [],
+        "tags": [],
+        "type": "count",
+        "user_attribute_filter_types": [
+          "number",
+          "advanced_filter_number"
+        ],
+        "value_format": "#,##0",
+        "value_format_name": "decimal_0",
+        "view": "order_items",
+        "view_label": "Order Items",
+        "dynamic": false,
+        "week_start_day": "monday",
+        "original_view": "order_items",
+        "dimension_group": null,
+        "error": null,
+        "field_group_variant": "Count",
+        "measure": true,
+        "parameter": false,
+        "primary_key": false,
+        "project_name": "custom_calendars",
+        "scope": "order_items",
+        "suggest_dimension": "order_items.count",
+        "suggest_explore": "order_items_parameter",
+        "suggestable": false,
+        "lookml_expression": null,
+        "is_fiscal": false,
+        "is_timeframe": false,
+        "can_time_filter": false,
+        "time_interval": null,
+        "lookml_link": "/projects/custom_calendars/files/views%2Forder_items.view.lkml?line=100",
+        "period_over_period_params": null,
+        "permanent": null,
+        "source_file": "views/order_items.view.lkml",
+        "source_file_path": "custom_calendars/views/order_items.view.lkml",
+        "sql": null,
+        "sql_case": null,
+        "filters": null,
+        "times_used": 0
+      }
+    ]
+  ],
+  "sorts": []
+}

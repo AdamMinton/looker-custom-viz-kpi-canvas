@@ -64,6 +64,14 @@ looker.plugins.visualizations.add({
   updateAsync: function (data, element, config, queryResponse, details, done) {
     this.clearErrors && this.clearErrors();
 
+    // DEBUG STATEMENTS
+    // console.log('--- KPI CANVAS v2: DATA ---', data);
+    // console.log('--- KPI CANVAS v2: QUERY RESPONSE ---', queryResponse);
+    // console.log('--- KPI CANVAS v2: ELEMENT ---', element);
+    // console.log('--- KPI CANVAS v2: CONFIG ---', config);
+    // console.log('--- KPI CANVAS v2: DETAILS ---', details);
+    // console.log('--- KPI CANVAS v2: DONE ---', done);
+
     // 1. Transform Data
     const tokens = transformDataToTokens(data, queryResponse);
 

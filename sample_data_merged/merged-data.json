@@ -1,0 +1,32 @@
+[
+    {
+        "order_items.count": {
+            "value": 2000,
+            "rendered": "2,000",
+            "links": [
+                {
+                    "label": "Show All 2,000",
+                    "label_prefix": "Show All",
+                    "label_value": "2,000",
+                    "url": "/explore/calendar_nrf/order_items_parameter?fields=order_items.id&f[arbitrary_period_analysis.first_period_filter]=7+days+ago+for+7+days&query_timezone=US%2FEastern&limit=500",
+                    "type": "measure_default"
+                }
+            ],
+            "html": "\n  2.0K\n   "
+        },
+        "q1_order_items.count": {
+            "value": 4127,
+            "rendered": "4,127",
+            "links": [
+                {
+                    "label": "Show All 4,127",
+                    "label_prefix": "Show All",
+                    "label_value": "4,127",
+                    "url": "/explore/calendar_nrf/order_items_parameter?fields=order_items.id&f[arbitrary_period_analysis.first_period_filter]=14+day+ago+for+14+day&query_timezone=US%2FEastern&limit=500",
+                    "type": "measure_default"
+                }
+            ],
+            "html": "\n  4.1K\n   "
+        }
+    }
+]
